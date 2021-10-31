@@ -1,0 +1,111 @@
+/* html {
+  box-sizing: border-box;
+} */
+body {
+  margin: 0;
+  height: 100vh;
+  /* font-size: 1.6rem; */
+  font-family: Helvetica, Arial, sans-serif;
+}
+h1 {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+h2 {
+  font-size: 1.6rem;
+  padding: 1rem 0;
+}
+
+/*produit*/
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.row.center {
+  justify-content: center;
+}
+
+/*produit_image*/
+img {
+  border-radius: 0.5rem;
+}
+
+img.medium {
+  max-width: 29rem;
+  width: 100%;
+}
+
+/* produit_card */
+.card {
+  border: 0.1rem #c0c0c0 solid;
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+  margin: 5px;
+}
+.card-body {
+  padding: 5px;
+}
+.card-body > * {
+  margin-bottom: 0.5rem;
+}
+.price {
+  font-size: 2rem;
+}
+
+/*produit_prix*/
+.prix {
+  font-size: 2rem;
+}
+
+/* Rating */
+.rating span {
+  color: #f1ff2c;
+  margin: 0.1rem;
+}
+
+/*Footer */
+.page-footer {
+  position: relative;
+  display: block;
+  padding-top: 80px;
+  padding-bottom: 20px;
+  background-color: #33374b;
+  color: #fff;
+}
+.footer-menu {
+  position: relative;
+  padding-left: 0;
+  list-style: none;
+}
+
+.footer-menu li {
+  margin-bottom: 8px;
+}
+
+.footer-menu a {
+  color: #afb7c1;
+}
+
+.footer-menu a:hover {
+  color: #fff;
+}
+
+/*Socila media icons*/
+.sosmed-button a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  outline: none !important;
+}
+
+#root {
+  height: 100%;
+}
