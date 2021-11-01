@@ -31,6 +31,7 @@ import Event from "./components/Event";
 import Events from "./components/Events";
 import CreateEvent from "./components/CreateEvent";
 import Carousel from "./components/Carousel";
+import ClientListPage from "./components/pages/ClientListPage";
 
 function App() {
   return (
@@ -70,6 +71,10 @@ function App() {
           <AdminRoute
             path="/commanderlist"
             component={CommandeListPage}
+          ></AdminRoute>
+          <AdminRoute
+            path="/clientlist"
+            component={ClientListPage}
           ></AdminRoute>
           <Route path="/blogs" component={Blogs}></Route>
           <Route path="/blog/:id" component={Blog}></Route>

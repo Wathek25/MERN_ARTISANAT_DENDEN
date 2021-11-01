@@ -3,7 +3,7 @@ import expressAsyncHandler from "express-async-handler";
 import data from "../data.js";
 import Client from "../models/clientModel.js";
 import bcrypt from "bcryptjs";
-import { generateToken } from "../utils.js";
+import { generateToken, isAdmin, isAuth } from "../utils.js";
 
 const clientRouter = express.Router();
 
@@ -58,4 +58,34 @@ clientRouter.post(
   })
 );
 
+//getting all list of clients for admin only
+clientRouter.get(
+  "/",
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const clients = await Client.find({});
+    res.send(clients);
+  })
+);
+
+//deleting clients
+clientRouter.delete(
+  "/:id",
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const client = await Client.findById(req.params.id);
+    if (client) {
+      if (client.email === "wathek@gmail.com") {
+        res.status(400).send({ message: "unauthorized" });
+        return;
+      }
+      const deleteClient = await client.remove();
+      res.send({ message: "Client supprimer", client: deleteClient });
+    } else {
+      res.status(404).send({ message: "Client inconnue" });
+    }
+  })
+);
 export default clientRouter;

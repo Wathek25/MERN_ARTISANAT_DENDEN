@@ -8,6 +8,7 @@ const clientSchema = new mongoose.Schema(
     password: { type: String, required: true },
     phone: { type: String, required: false },
     isAdmin: { type: Boolean, default: false, required: true },
+    isArtisan: { type: Boolean, default: false, required: true },
   },
   {
     timestamps: true,

@@ -2,6 +2,8 @@ import { createStore, compose, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import {
   clientConnectReducer,
+  clientDeleteReducer,
+  clientListReducer,
   clientRegisterReducer,
 } from "../reducers/clientReducer";
 
@@ -56,6 +58,8 @@ const reducer = combineReducers({
   produitDelete: produitDeleteReducer,
   commanderList: commanderListReducer,
   commanderDelete: commanderDeleteReducer,
+  clientList: clientListReducer,
+  clientDelete: clientDeleteReducer,
 });
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
