@@ -34,18 +34,18 @@ const ConnectPage = (props) => {
 
   return (
     <div>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler} className="form">
         <h3>S'identifier</h3>
         {loading && <Loading />}
         {error && (
           <h6 style={{ color: "red" }}>Email ou mot de passe invalide</h6>
         )}
 
-        <div className="form-group">
+        <div className="">
           <label>Votre Email</label>
           <input
             type="email"
-            className="form-control"
+            className=""
             placeholder="Entrez votre email"
             id="email"
             required
@@ -53,11 +53,11 @@ const ConnectPage = (props) => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="">
           <label>Votre mot de passe</label>
           <input
             type="password"
-            className="form-control"
+            className=""
             placeholder="Entrez votre mot de passe"
             id="password"
             required
@@ -65,7 +65,7 @@ const ConnectPage = (props) => {
           />
         </div>
 
-        <button type="submit" className="btn btn-primary btn-block">
+        <button type="submit" className=" btn btn-primary btn-block">
           Connecter
         </button>
 

@@ -29,12 +29,14 @@ import CreateBlog from "./components/CreateBlog";
 import Event from "./components/Event";
 import Events from "./components/Events";
 import CreateEvent from "./components/CreateEvent";
+import Carousel from "./components/Carousel";
 
 function App() {
   return (
     <div>
       <div>
         <Navbar />
+        <Carousel />
         <Switch>
           <Route path="/tappie" component={Tapisserie}></Route>
           <Route path="/cuivre" component={Cuivre}></Route>
