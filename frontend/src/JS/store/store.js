@@ -7,6 +7,8 @@ import {
 
 import {
   commandeCreateReducer,
+  commanderDeleteReducer,
+  commanderListReducer,
   commanderMineListReducer,
   commanderPayReducer,
   commandeViewReducer,
@@ -52,6 +54,8 @@ const reducer = combineReducers({
   produitCreate: produitCreateReducer,
   produitUpdate: produitUpdateReducer,
   produitDelete: produitDeleteReducer,
+  commanderList: commanderListReducer,
+  commanderDelete: commanderDeleteReducer,
 });
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(

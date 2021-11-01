@@ -169,7 +169,7 @@ const NavbarC = () => {
                   </NavDropdown.Item>
                   <NavDropdown.Item>
                     <Link
-                      to="/commandelist"
+                      to="/commanderlist"
                       style={{
                         textDecoration: "none",
                         color: "rgba(0,0,0,.55)",

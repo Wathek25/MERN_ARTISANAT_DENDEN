@@ -132,7 +132,7 @@ const CommandeView = (props) => {
               </li>
               <li>
                 <div className="row">
-                  <div>produits</div>
+                  <div>prix</div>
                   <div>{commander.produitsPrix.toFixed(2)} Dt</div>
                 </div>
               </li>

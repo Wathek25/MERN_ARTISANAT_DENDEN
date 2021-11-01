@@ -13,6 +13,13 @@ import {
   COMMANDER_MINE_LIST_REQUEST,
   COMMANDER_MINE_LIST_FAIL,
   COMMANDER_MINE_LIST_SUCCESS,
+  COMMANDER_LIST_REQUEST,
+  COMMANDER_LIST_SUCCESS,
+  COMMANDER_LIST_FAIL,
+  COMMANDER_DELETE_REQUEST,
+  COMMANDER_DELETE_SUCCESS,
+  COMMANDER_DELETE_FAIL,
+  COMMANDER_DELETE_RESET,
 } from "../constants/commanderConstants";
 
 export const commandeCreateReducer = (state = {}, action) => {
@@ -70,6 +77,36 @@ export const commanderMineListReducer = (
       return { loading: false, commanders: action.payload };
     case COMMANDER_MINE_LIST_FAIL:
       return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+//to display all the new list of orders for the admin
+export const commanderListReducer = (state = { commanders: [] }, action) => {
+  switch (action.type) {
+    case COMMANDER_LIST_REQUEST:
+      return { loading: true };
+    case COMMANDER_LIST_SUCCESS:
+      return { loading: false, commanders: action.payload };
+    case COMMANDER_LIST_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+//deleting orders
+export const commanderDeleteReducer = (state = {}, action) => {
+  switch (action.type) {
+    case COMMANDER_DELETE_REQUEST:
+      return { loading: true };
+    case COMMANDER_DELETE_SUCCESS:
+      return { loading: false, success: true };
+    case COMMANDER_DELETE_FAIL:
+      return { loading: false, error: action.payload };
+    case COMMANDER_DELETE_RESET:
+      return {};
     default:
       return state;
   }

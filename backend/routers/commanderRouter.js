@@ -1,12 +1,22 @@
 import express from "express";
 import expressAsyncHandler from "express-async-handler";
 import Commander from "../models/commanderModel.js";
-import { isAuth } from "../utils.js";
+import { isAuth, isAdmin } from "../utils.js";
 
 const commanderRouter = express.Router();
 
-//historique des commande
+//getting all orders for the admin
+commanderRouter.get(
+  "/",
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const commanders = await Commander.find({}).populate("client", "nom");
+    res.send(commanders);
+  })
+);
 
+//historique des commande
 commanderRouter.get(
   "/mine",
   isAuth,
@@ -81,6 +91,22 @@ commanderRouter.put(
       res.send({ message: "Commande payée", order: updatedCommander });
     } else {
       res.status(404).send({ message: "Commande inconnue" });
+    }
+  })
+);
+
+//to delete orders by admin
+commanderRouter.delete(
+  "/:id",
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const commander = await Commander.findById(req.params.id);
+    if (commander) {
+      const deleteCommander = await commander.remove();
+      res.send({ message: "Commande supprimer", commander: deleteCommander });
+    } else {
+      res.status(404).send({ message: "Commande inconnue!" });
     }
   })
 );

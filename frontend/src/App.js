@@ -22,6 +22,7 @@ import Verre from "./components/nosartisans/Verre";
 import CommanderHistorique from "./components/pages/CommanderHistorique";
 import AdminRoute from "./components/AdminRoute";
 import ProduitListPage from "./components/pages/ProduitListPage";
+import CommandeListPage from "./components/pages/CommandeListPage";
 import ProduitModifierPage from "./components/pages/ProduitModifierPage";
 import Blog from "./components/Blog";
 import Blogs from "./components/Blogs";
@@ -65,6 +66,10 @@ function App() {
           <AdminRoute
             path="/produitlist"
             component={ProduitListPage}
+          ></AdminRoute>
+          <AdminRoute
+            path="/commanderlist"
+            component={CommandeListPage}
           ></AdminRoute>
           <Route path="/blogs" component={Blogs}></Route>
           <Route path="/blog/:id" component={Blog}></Route>

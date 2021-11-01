@@ -14,6 +14,12 @@ import {
   COMMANDER_MINE_LIST_REQUEST,
   COMMANDER_MINE_LIST_FAIL,
   COMMANDER_MINE_LIST_SUCCESS,
+  COMMANDER_LIST_REQUEST,
+  COMMANDER_LIST_SUCCESS,
+  COMMANDER_LIST_FAIL,
+  COMMANDER_DELETE_REQUEST,
+  COMMANDER_DELETE_SUCCESS,
+  COMMANDER_DELETE_FAIL,
 } from "../constants/commanderConstants";
 
 export const createCommande = (commander) => async (dispatch, getState) => {
@@ -88,6 +94,7 @@ export const payCommander =
     }
   };
 
+//getting all orders history for each client
 export const listCommanderMine = () => async (dispatch, getState) => {
   dispatch({ type: COMMANDER_MINE_LIST_REQUEST });
   const {
@@ -106,5 +113,46 @@ export const listCommanderMine = () => async (dispatch, getState) => {
         ? error.response.data.message
         : error.message;
     dispatch({ type: COMMANDER_MINE_LIST_FAIL, payload: message });
+  }
+};
+
+//getting all list of orders for the admin
+export const listCommanders = () => async (dispatch, getState) => {
+  dispatch({ type: COMMANDER_LIST_REQUEST });
+  const {
+    clientConnecter: { clientInfo },
+  } = getState();
+  try {
+    const { data } = await axios.get("/api/commanders", {
+      headers: { Authorization: `Bearer ${clientInfo.token}` },
+    });
+    console.log(data);
+    dispatch({ type: COMMANDER_LIST_SUCCESS, payload: data });
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({ type: COMMANDER_LIST_FAIL, payload: message });
+  }
+};
+
+//deleting orders
+export const deleteCommander = (commanderId) => async (dispatch, getState) => {
+  dispatch({ type: COMMANDER_DELETE_REQUEST, payload: commanderId });
+  const {
+    clientConnecter: { clientInfo },
+  } = getState();
+  try {
+    const { data } = axios.delete(`/api/commanders/${commanderId}`, {
+      headers: { Authorization: `Bearer ${clientInfo.token}` },
+    });
+    dispatch({ type: COMMANDER_DELETE_SUCCESS, payload: data });
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({ type: COMMANDER_DELETE_FAIL, payload: message });
   }
 };
