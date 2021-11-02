@@ -108,6 +108,17 @@ const NavbarC = () => {
                     {clientInfo.prenom}
                     <NavDropdown.Item>
                       <Link
+                        to="/profile"
+                        style={{
+                          textDecoration: "none",
+                          color: "rgba(0,0,0,.55)",
+                        }}
+                      >
+                        Modifier profile
+                      </Link>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item>
+                      <Link
                         to="/commanderhistorique"
                         style={{
                           textDecoration: "none",

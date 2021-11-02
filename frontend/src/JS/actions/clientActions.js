@@ -13,6 +13,14 @@ import {
   CLIENT_DELETE_REQUEST,
   CLIENT_DELETE_SUCCESS,
   CLIENT_DELETE_FAIL,
+  CLIENT_DETAILS_FAIL,
+  CLIENT_DETAILS_REQUEST,
+  CLIENT_DETAILS_SUCCESS,
+  CLIENT_UPDATE_PROFILE_FAIL,
+  CLIENT_UPDATE_PROFILE_REQUEST,
+  CLIENT_UPDATE_PROFILE_SUCCESS,
+  CLIENT_UPDATE_SUCCESS,
+  CLIENT_UPDATE_FAIL,
 } from "../../JS/constants/clientConstants";
 
 export const register = (nom, prenom, email, password) => async (dispatch) => {
@@ -55,6 +63,68 @@ export const connecter = (email, password) => async (dispatch) => {
           ? error.response.data.message
           : error.message,
     });
+  }
+};
+
+//client details (info)
+export const detailsClient = (clientId) => async (dispatch, getState) => {
+  dispatch({ type: CLIENT_DETAILS_REQUEST, payload: clientId });
+  const {
+    clientConnecter: { clientInfo },
+  } = getState();
+  try {
+    const { data } = await axios.get(`/api/clients/${clientId}`, {
+      headers: { Authorization: `Bearer ${clientInfo.token}` },
+    });
+    dispatch({ type: CLIENT_DETAILS_SUCCESS, payload: data });
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({ type: CLIENT_DETAILS_FAIL, payload: message });
+  }
+};
+
+//updating profiles by clients
+export const updateClientProfile = (client) => async (dispatch, getState) => {
+  dispatch({ type: CLIENT_UPDATE_PROFILE_REQUEST, payload: client });
+  const {
+    clientConnecter: { clientInfo },
+  } = getState();
+  try {
+    const { data } = await axios.put(`/api/clients/profile`, client, {
+      headers: { Authorization: `Bearer ${clientInfo.token}` },
+    });
+    dispatch({ type: CLIENT_UPDATE_PROFILE_SUCCESS, payload: data });
+    dispatch({ type: CLIENT_CONNECT_SUCCESS, payload: data });
+    localStorage.setItem("clientInfo", JSON.stringify(data));
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({ type: CLIENT_UPDATE_PROFILE_FAIL, payload: message });
+  }
+};
+
+//updating profiles by admin
+export const updateClient = (client) => async (dispatch, getState) => {
+  dispatch({ type: CLIENT_UPDATE_PROFILE_REQUEST, payload: client });
+  const {
+    clientConnecter: { clientInfo },
+  } = getState();
+  try {
+    const { data } = await axios.put(`/api/clients/${client._id}`, client, {
+      headers: { Authorization: `Bearer ${clientInfo.token}` },
+    });
+    dispatch({ type: CLIENT_UPDATE_SUCCESS, payload: data });
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({ type: CLIENT_UPDATE_FAIL, payload: message });
   }
 };
 
@@ -105,5 +175,5 @@ export const signout = () => (dispatch) => {
   localStorage.removeItem("panierProduits");
   localStorage.removeItem("shippingAddress");
   dispatch({ type: CLIENT_SIGNOUT });
-  document.location.location.href = "/connecter";
+  document.location.href = "/connecter";
 };

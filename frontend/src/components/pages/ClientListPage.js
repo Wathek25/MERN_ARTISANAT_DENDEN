@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteClient, listClients } from "../../JS/actions/clientActions";
 import Loading from "../Loading";
+import { CLIENT_DETAILS_RESET } from "../../JS/constants/clientConstants";
 
-const ClientListPage = () => {
+const ClientListPage = (props) => {
   const clientList = useSelector((state) => state.clientList);
   const { loading, error, clients } = clientList;
 
@@ -17,6 +18,9 @@ const ClientListPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(listClients());
+    dispatch({
+      type: CLIENT_DETAILS_RESET,
+    });
   }, [dispatch, successDelete]);
   const deleteHandler = (client) => {
     if (window.confirm("Vous etes sur?")) {
@@ -57,7 +61,13 @@ const ClientListPage = () => {
                 <td>{client.isArtisan ? "OUI" : "NON"}</td>
                 <td>{client.isAdmin ? "OUI" : "NON"}</td>
                 <td>
-                  <button type="button" className="small">
+                  <button
+                    type="button"
+                    className="small"
+                    onClick={() =>
+                      props.history.push(`/client/${client._id}/modifier`)
+                    }
+                  >
                     Modifier
                   </button>
                   <button

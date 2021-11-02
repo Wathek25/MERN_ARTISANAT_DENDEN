@@ -3,8 +3,11 @@ import thunk from "redux-thunk";
 import {
   clientConnectReducer,
   clientDeleteReducer,
+  clientDetailsReducer,
   clientListReducer,
   clientRegisterReducer,
+  clientUpdateProfileReducer,
+  clientUpdateReducer,
 } from "../reducers/clientReducer";
 
 import {
@@ -49,6 +52,8 @@ const reducer = combineReducers({
   panier: panierReducer,
   clientConnecter: clientConnectReducer,
   clientRegister: clientRegisterReducer,
+  clientDetails: clientDetailsReducer,
+  clientUpdateProfile: clientUpdateProfileReducer,
   commandeCreate: commandeCreateReducer,
   commandeDetails: commandeViewReducer,
   commanderPay: commanderPayReducer,
@@ -60,6 +65,7 @@ const reducer = combineReducers({
   commanderDelete: commanderDeleteReducer,
   clientList: clientListReducer,
   clientDelete: clientDeleteReducer,
+  clientUpdate: clientUpdateReducer,
 });
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(

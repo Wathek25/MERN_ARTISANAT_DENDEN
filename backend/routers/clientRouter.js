@@ -58,6 +58,29 @@ clientRouter.post(
   })
 );
 
+//uodating profile page
+clientRouter.get(
+  "/:id",
+  expressAsyncHandler(async (req, res) => {
+    const client = await Client.findById(req.params.id);
+    if (client) {
+      res.send(client);
+    } else {
+      res.status(404).send({ message: "client Not Found" });
+    }
+  })
+);
+
+//uodating profiles by clients
+clientRouter.put(
+  "/profile",
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const client = await Client.updateOne({ _id: req.body.clientId }, req.body);
+    res.send(client);
+  })
+);
+
 //getting all list of clients for admin only
 clientRouter.get(
   "/",
@@ -88,4 +111,36 @@ clientRouter.delete(
     }
   })
 );
+
+//editing (modification) the clients info + roles by admin
+clientRouter.put(
+  "/:id",
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const client = await Client.findById(req.params.id);
+    if (client) {
+      client.nom = req.body.nom || client.nom;
+      client.prenom = req.body.prenom || client.prenom;
+      client.email = req.body.email || client.email;
+      client.isArtisan = req.body.isArtisan || client.isArtisan;
+      client.isAdmin = req.body.isAdmin || client.isAdmin;
+      const updatedClient = await client.save();
+      res.send({ message: "Client mis à jour", client: updatedClient });
+    } else {
+      res.status(404).send({ message: "Client inconnue" });
+    }
+  })
+);
+
+// clientRouter.put(
+//   "/:id",
+//   isAuth,
+//   isAdmin,
+//   expressAsyncHandler(async (req, res) => {
+//     const client = await Client.updateOne({ _id: req.body.clientId }, req.body);
+//     res.send(client);
+//   })
+// );
+
 export default clientRouter;

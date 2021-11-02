@@ -32,6 +32,9 @@ import Events from "./components/Events";
 import CreateEvent from "./components/CreateEvent";
 import Carousel from "./components/Carousel";
 import ClientListPage from "./components/pages/ClientListPage";
+import ProfilePage from "./components/pages/ProfilePage";
+import PrivateRoute from "./components/PrivateRoute";
+import ClientModiferPage from "./components/pages/ClientModiferPage";
 
 function App() {
   return (
@@ -76,6 +79,10 @@ function App() {
             path="/clientlist"
             component={ClientListPage}
           ></AdminRoute>
+          <AdminRoute
+            path="/client/:id/modifier"
+            component={ClientModiferPage}
+          ></AdminRoute>
           <Route path="/blogs" component={Blogs}></Route>
           <Route path="/blog/:id" component={Blog}></Route>
           <Route path="/createblog" component={CreateBlog}></Route>
@@ -83,6 +90,7 @@ function App() {
           <Route path="/events" component={Events}></Route>
           <Route path="/event/:id" component={Event}></Route>
           <Route path="/createevenement" component={CreateEvent}></Route>
+          <PrivateRoute path="/profile" component={ProfilePage} />
           <Route exact path="/" component={Acceuil}></Route>
         </Switch>
         <Footer />
