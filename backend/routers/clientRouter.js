@@ -133,14 +133,4 @@ clientRouter.put(
   })
 );
 
-// clientRouter.put(
-//   "/:id",
-//   isAuth,
-//   isAdmin,
-//   expressAsyncHandler(async (req, res) => {
-//     const client = await Client.updateOne({ _id: req.body.clientId }, req.body);
-//     res.send(client);
-//   })
-// );
-
 export default clientRouter;
