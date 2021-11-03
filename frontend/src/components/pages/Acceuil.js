@@ -12,7 +12,7 @@ const Acceuil = () => {
   const { loading, error, produits } = produitList;
 
   useEffect(() => {
-    dispatch(listProduits());
+    dispatch(listProduits({}));
   }, [dispatch]);
 
   return (

@@ -8,6 +8,7 @@ export const generateToken = (client) => {
       nom: client.nom,
       email: client.email,
       isAdmin: client.isAdmin,
+      isArtisan: client.isArtisan,
     },
     process.env.JWT_SECRET || "azerty",
     {
@@ -26,7 +27,7 @@ export const isAuth = (req, res, next) => {
       if (err) {
         res.status(401).send({ message: "Invalid Token" });
       } else {
-        req.user = decode;
+        req.client = decode;
         // console.log(decode);
         next();
       }
@@ -37,9 +38,25 @@ export const isAuth = (req, res, next) => {
 };
 
 export const isAdmin = (req, res, next) => {
-  if (req.user && req.user.isAdmin) {
+  if (req.client && req.client.isAdmin) {
     next();
   } else {
     res.status(401).send({ message: "Invalid Admin Token" });
+  }
+};
+
+export const isArtisan = (req, res, next) => {
+  if (req.client && req.client.isArtisan) {
+    next();
+  } else {
+    res.status(401).send({ message: "Invalid Artisan Token" });
+  }
+};
+
+export const isArtisanOrAdmin = (req, res, next) => {
+  if ((req.client && req.client.isArtisan) || req.client.isArtisan) {
+    next();
+  } else {
+    res.status(401).send({ message: "Invalid ArtisanOrAdmin Token" });
   }
 };

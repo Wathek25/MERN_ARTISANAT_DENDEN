@@ -12,6 +12,7 @@ import {
 import Loading from "../Loading";
 
 const ProduitListPage = (props) => {
+  const artisanMode = props.match.path.indexOf("/artisan") >= 0;
   const produitList = useSelector((state) => state.produitList);
   const { loading, error, produits } = produitList;
 
@@ -30,6 +31,8 @@ const ProduitListPage = (props) => {
     success: successDelete,
   } = produitDelete;
 
+  const clientConnecter = useSelector((state) => state.clientConnecter);
+  const { clientInfo } = clientConnecter;
   const dispatch = useDispatch();
   useEffect(() => {
     if (successCreate) {
@@ -39,8 +42,16 @@ const ProduitListPage = (props) => {
     if (successDelete) {
       dispatch({ type: PRODUIT_DELETE_RESET });
     }
-    dispatch(listProduits());
-  }, [createdProduit, dispatch, props.history, successCreate, successDelete]);
+    dispatch(listProduits({ artisan: artisanMode ? clientInfo._id : "" }));
+  }, [
+    createdProduit,
+    dispatch,
+    props.history,
+    artisanMode,
+    successCreate,
+    successDelete,
+    clientInfo._id,
+  ]);
   const deleteHandler = (produit) => {
     if (window.confirm("Supprimer ce produit ?")) {
       dispatch(deleteProduit(produit._id));

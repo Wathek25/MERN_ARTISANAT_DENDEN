@@ -154,6 +154,33 @@ const NavbarC = () => {
                 )}
               </NavDropdown>
 
+              {clientInfo && clientInfo.isArtisan && (
+                <NavDropdown title="Artisan" id="basic-nav-dropdown">
+                  <NavDropdown.Item>
+                    <Link
+                      to="/produitlist/artisan"
+                      style={{
+                        textDecoration: "none",
+                        color: "rgba(0,0,0,.55)",
+                      }}
+                    >
+                      Les Produits
+                    </Link>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <Link
+                      to="/commanderlist/artisan"
+                      style={{
+                        textDecoration: "none",
+                        color: "rgba(0,0,0,.55)",
+                      }}
+                    >
+                      Les Commandes
+                    </Link>
+                  </NavDropdown.Item>
+                </NavDropdown>
+              )}
+
               {clientInfo && clientInfo.isAdmin && (
                 <NavDropdown title="Admin" id="basic-nav-dropdown">
                   <NavDropdown.Item>

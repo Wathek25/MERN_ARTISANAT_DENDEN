@@ -35,6 +35,7 @@ import ClientListPage from "./components/pages/ClientListPage";
 import ProfilePage from "./components/pages/ProfilePage";
 import PrivateRoute from "./components/PrivateRoute";
 import ClientModiferPage from "./components/pages/ClientModiferPage";
+import ArtisanRoute from "./components/ArtisanRoute";
 
 function App() {
   return (
@@ -68,10 +69,12 @@ function App() {
           ></Route>
           <Route path="/commander" component={CommanderPage}></Route>
           <AdminRoute
+            exact
             path="/produitlist"
             component={ProduitListPage}
           ></AdminRoute>
           <AdminRoute
+            exact
             path="/commanderlist"
             component={CommandeListPage}
           ></AdminRoute>
@@ -83,6 +86,14 @@ function App() {
             path="/client/:id/modifier"
             component={ClientModiferPage}
           ></AdminRoute>
+          <ArtisanRoute
+            path="/produitlist/artisan"
+            component={ProduitListPage}
+          ></ArtisanRoute>
+          <ArtisanRoute
+            path="/commanderlist/artisan"
+            component={CommandeListPage}
+          ></ArtisanRoute>
           <Route path="/blogs" component={Blogs}></Route>
           <Route path="/blog/:id" component={Blog}></Route>
           <Route path="/createblog" component={CreateBlog}></Route>

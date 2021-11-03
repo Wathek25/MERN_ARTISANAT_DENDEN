@@ -2,14 +2,17 @@ import express from "express";
 import expressAsyncHandler from "express-async-handler";
 import data from "../data.js";
 import Produit from "../models/produitModel.js";
-import { isAdmin, isAuth } from "../utils.js";
+import { isAdmin, isArtisanOrAdmin, isAuth } from "../utils.js";
 
 const produitRouter = express.Router();
 
 produitRouter.get(
   "/",
   expressAsyncHandler(async (req, res) => {
-    const produits = await Produit.find({});
+    // const produits = await Produit.find({});
+    const artisan = req.query.artisan || "";
+    const artisanFilter = artisan ? { artisan } : {};
+    const produits = await Produit.find({ ...artisanFilter });
     res.send(produits);
   })
 );
@@ -38,10 +41,11 @@ produitRouter.get(
 produitRouter.post(
   "/",
   isAuth,
-  isAdmin,
+  isArtisanOrAdmin,
   expressAsyncHandler(async (req, res) => {
     const produit = new Produit({
       nom: "Nom produit " + Date.now(),
+      artisan: req.client._id,
       categorie: "Categorie produit",
       image: "/images/BOIS1.JPG",
       stock: 0,
@@ -59,7 +63,7 @@ produitRouter.post(
 produitRouter.put(
   "/:id",
   isAuth,
-  isAdmin,
+  isArtisanOrAdmin,
   expressAsyncHandler(async (req, res) => {
     const produitId = req.params.id;
     const produit = await Produit.findById(produitId);

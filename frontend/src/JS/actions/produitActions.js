@@ -17,17 +17,19 @@ import {
   PRODUIT_DELETE_SUCCESS,
 } from "../constants/produitConstants";
 
-export const listProduits = () => async (dispatch) => {
-  dispatch({
-    type: PRODUIT_LIST_REQUEST,
-  });
-  try {
-    const { data } = await axios.get("/api/produits");
-    dispatch({ type: PRODUIT_LIST_SUCCESS, payload: data });
-  } catch (error) {
-    dispatch({ type: PRODUIT_LIST_FAIL, payload: error.message });
-  }
-};
+export const listProduits =
+  ({ artisan = "" }) =>
+  async (dispatch) => {
+    dispatch({
+      type: PRODUIT_LIST_REQUEST,
+    });
+    try {
+      const { data } = await axios.get(`/api/produits?artisan=${artisan}`);
+      dispatch({ type: PRODUIT_LIST_SUCCESS, payload: data });
+    } catch (error) {
+      dispatch({ type: PRODUIT_LIST_FAIL, payload: error.message });
+    }
+  };
 
 export const detailsProduit = (produitId) => async (dispatch) => {
   dispatch({ type: PRODUIT_DETAILS_REQUEST, payload: produitId });

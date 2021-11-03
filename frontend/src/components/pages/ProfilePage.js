@@ -14,6 +14,10 @@ const ProfilePage = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  const [artisanNom, setArtisanNom] = useState("");
+  const [artisanPrenom, setArtisanPrenom] = useState("");
+  const [artisanDescription, setArtisanDescription] = useState("");
+
   const clientConnecter = useSelector((state) => state.clientConnecter);
   const { clientInfo } = clientConnecter;
   const clientDetails = useSelector((state) => state.clientDetails);
@@ -36,6 +40,11 @@ const ProfilePage = () => {
       setPrenom(client.prenom);
       setEmail(client.email);
     }
+    if (client.artisan) {
+      setArtisanNom(client.artisan.nom);
+      setArtisanPrenom(client.artisan.prenom);
+      setArtisanDescription(client.artisan.description);
+    }
   }, [dispatch, clientInfo._id, client]);
   const submitHandler = (e) => {
     e.preventDefault();
@@ -49,6 +58,9 @@ const ProfilePage = () => {
           prenom,
           email,
           password,
+          artisanNom,
+          artisanPrenom,
+          artisanDescription,
         })
       );
     }
@@ -125,10 +137,45 @@ const ProfilePage = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               ></input>
             </div>
+            {client.isArtisan && (
+              <>
+                <h2>Artisan</h2>
+                <div>
+                  <label htmlFor="artisanNom">Nom du l'artisan</label>
+                  <input
+                    id="artisanNom"
+                    type="text"
+                    placeholder="Votre nom"
+                    value={artisanNom}
+                    onChange={(e) => setArtisanNom(e.target.value)}
+                  ></input>
+                </div>
+                <div>
+                  <label htmlFor="artisanPrenom">Prenom du l'artisan</label>
+                  <input
+                    id="artisanPrenom"
+                    type="text"
+                    placeholder="Votre prenom"
+                    value={artisanPrenom}
+                    onChange={(e) => setArtisanPrenom(e.target.value)}
+                  ></input>
+                </div>
+                <div>
+                  <label htmlFor="artisanDescription">Description</label>
+                  <input
+                    id="artisanDescription"
+                    type="text"
+                    placeholder="Votre description"
+                    value={artisanDescription}
+                    onChange={(e) => setArtisanDescription(e.target.value)}
+                  ></input>
+                </div>
+              </>
+            )}
             <div>
               <label />
               <button style={{ backgroundColor: "green" }} type="submit">
-                Update
+                Envoyer
               </button>
             </div>
           </>

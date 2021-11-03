@@ -9,6 +9,13 @@ const clientSchema = new mongoose.Schema(
     phone: { type: String, required: false },
     isAdmin: { type: Boolean, default: false, required: true },
     isArtisan: { type: Boolean, default: false, required: true },
+    artisan: {
+      nom: String,
+      prenom: String,
+      description: String,
+      rating: { type: Number, default: 0, required: true },
+      numReviews: { type: Number, default: 0, required: true },
+    },
   },
   {
     timestamps: true,
