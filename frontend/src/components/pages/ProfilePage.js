@@ -42,7 +42,7 @@ const ProfilePage = () => {
       setPrenom(client.prenom);
       setEmail(client.email);
     }
-    if (client.artisan) {
+    if (client) {
       setArtisanNom(client.artisan.nom);
       setArtisanPrenom(client.artisan.prenom);
       setArtisanDescription(client.artisan.description);

@@ -12,7 +12,10 @@ produitRouter.get(
     // const produits = await Produit.find({});
     const artisan = req.query.artisan || "";
     const artisanFilter = artisan ? { artisan } : {};
-    const produits = await Produit.find({ ...artisanFilter });
+    const produits = await Produit.find({ ...artisanFilter }).populate(
+      "artisan",
+      "artisan.nom artisan.prenom artisan.rating artisan.numReviews"
+    );
     res.send(produits);
   })
 );

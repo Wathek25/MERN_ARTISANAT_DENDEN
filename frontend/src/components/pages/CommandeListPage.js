@@ -8,6 +8,7 @@ import { COMMANDER_DELETE_RESET } from "../../JS/constants/commanderConstants";
 import Loading from "../Loading";
 
 const CommandeListPage = (props) => {
+  const artisanMode = props.match.path.indexOf("/artisan") >= 0;
   const commanderList = useSelector((state) => state.commanderList);
   const { loading, error, commanders } = commanderList;
   const commanderDelete = useSelector((state) => state.commanderDelete);
@@ -17,11 +18,13 @@ const CommandeListPage = (props) => {
     success: successDelete,
   } = commanderDelete;
 
+  const clientConnecter = useSelector((state) => state.clientConnecter);
+  const { clientInfo } = clientConnecter;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch({ type: COMMANDER_DELETE_RESET });
-    dispatch(listCommanders());
-  }, [dispatch, successDelete]);
+    dispatch(listCommanders({ artisan: artisanMode ? clientInfo._id : "" }));
+  }, [dispatch, artisanMode, successDelete, clientInfo._id]);
   const deleteHandler = (commander) => {
     if (window.confirm("Vous êtes sur de supprimer?")) {
       dispatch(deleteCommander(commander._id));

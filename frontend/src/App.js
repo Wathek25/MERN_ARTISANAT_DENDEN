@@ -36,6 +36,7 @@ import ProfilePage from "./components/pages/ProfilePage";
 import PrivateRoute from "./components/PrivateRoute";
 import ClientModiferPage from "./components/pages/ClientModiferPage";
 import ArtisanRoute from "./components/ArtisanRoute";
+import ArtisanPage from "./components/pages/ArtisanPage";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
           <Route path="/mosaique" component={Mosaique}></Route>
           <Route path="/verre" component={Verre}></Route>
           <Route path="/peinture" component={Peinture}></Route>
+          <Route path="/artisan/:id" component={ArtisanPage}></Route>
           <Route path="/panier/:id?" component={PanierPage}></Route>
           <Route exact path="/produit/:id" component={ProduitPage}></Route>
           <Route

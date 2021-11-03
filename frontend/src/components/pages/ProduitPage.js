@@ -65,6 +65,23 @@ const ProduitPage = (props) => {
               <div className="">
                 <ul>
                   <li>
+                    Artisan
+                    <h2>
+                      <Link to={`/artisan/${produit.artisan._id}`}>
+                        {/* {produit.artisan.artisan.prenom} */}
+                      </Link>
+                    </h2>
+                    <h2>
+                      <Link to={`/artisan/${produit.artisan._id}`}>
+                        {/* {produit.artisan.artisan.nom} */}
+                      </Link>
+                    </h2>
+                    {/* <Rating
+                      rating={produit.artisan.artisan.rating}
+                      numReviews={produit.artisan.artisan.numReviews}
+                    ></Rating> */}
+                  </li>
+                  <li>
                     <div className="">
                       <div>Prix</div>
                       <div className="price">{produit.prix} Dt</div>

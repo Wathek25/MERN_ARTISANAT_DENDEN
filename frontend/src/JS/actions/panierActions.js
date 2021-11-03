@@ -17,6 +17,7 @@ export const ajoutAuPanier =
         prix: data.prix,
         stock: data.stock,
         produit: data._id,
+        artisan: data.artisan,
         quantite,
       },
     });

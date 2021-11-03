@@ -78,33 +78,33 @@ clientRouter.put(
   "/profile",
   isAuth,
   expressAsyncHandler(async (req, res) => {
-    const client = await Client.updateOne({ _id: req.body.clientId }, req.body);
-    res.send(client);
-    // const client = await Client.findById(req.client._id);
-    // if (client) {
-    //   client.nom = req.body.nom || client.nom;
-    //   client.prenom = req.body.prenom || client.prenom;
-    //   client.email = req.body.email || client.email;
-    //   if (client.isArtisan) {
-    //     client.artisan.nom = req.body.artisanNom || client.artisan.nom;
-    //     client.artisan.prenom = req.body.artisanPrenom || client.artisan.prenom;
-    //     client.artisan.description =
-    //       req.body.artisanDescription || client.artisan.description;
-    //   }
-    //   if (req.body.password) {
-    //     client.password = bcrypt.hashSync(req.body.password, 8);
-    //   }
-    //   const updatedClient = await client.save();
-    //   res.send({
-    //     _id: updatedClient._id,
-    //     nom: updatedClient.nom,
-    //     prenom: updatedClient.prenom,
-    //     email: updatedClient.email,
-    //     isAdmin: updatedClient.isAdmin,
-    //     isArtisan: client.isArtisan,
-    //     token: generateToken(updatedClient),
-    //   });
-    // }
+    // const client = await Client.updateOne({ _id: req.body.clientId }, req.body);
+    // res.send(client);
+    const client = await Client.findById(req.client._id);
+    if (client) {
+      client.nom = req.body.nom || client.nom;
+      client.prenom = req.body.prenom || client.prenom;
+      client.email = req.body.email || client.email;
+      if (client.isArtisan) {
+        client.artisan.nom = req.body.artisanNom || client.artisan.nom;
+        client.artisan.prenom = req.body.artisanPrenom || client.artisan.prenom;
+        client.artisan.description =
+          req.body.artisanDescription || client.artisan.description;
+      }
+      if (req.body.password) {
+        client.password = bcrypt.hashSync(req.body.password, 8);
+      }
+      const updatedClient = await client.save();
+      res.send({
+        _id: updatedClient._id,
+        nom: updatedClient.nom,
+        prenom: updatedClient.prenom,
+        email: updatedClient.email,
+        isAdmin: updatedClient.isAdmin,
+        isArtisan: client.isArtisan,
+        token: generateToken(updatedClient),
+      });
+    }
   })
 );
 

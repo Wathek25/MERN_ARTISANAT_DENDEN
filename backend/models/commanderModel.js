@@ -38,6 +38,7 @@ const commanderSchema = new mongoose.Schema(
       ref: "Client",
       required: true,
     },
+    artisan: { type: mongoose.Schema.Types.ObjectID, ref: "Client" },
     isPaid: { type: Boolean, default: false },
     paidAt: { type: Date },
     isDelivered: { type: Boolean, default: false },

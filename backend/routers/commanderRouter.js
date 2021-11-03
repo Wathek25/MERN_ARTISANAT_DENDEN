@@ -1,7 +1,7 @@
 import express from "express";
 import expressAsyncHandler from "express-async-handler";
 import Commander from "../models/commanderModel.js";
-import { isAuth, isAdmin } from "../utils.js";
+import { isAuth, isAdmin, isArtisanOrAdmin } from "../utils.js";
 
 const commanderRouter = express.Router();
 
@@ -9,9 +9,14 @@ const commanderRouter = express.Router();
 commanderRouter.get(
   "/",
   isAuth,
-  isAdmin,
+  isArtisanOrAdmin,
   expressAsyncHandler(async (req, res) => {
-    const commanders = await Commander.find({}).populate("client", "nom");
+    const artisan = req.query.artisan || "";
+    const artisanFilter = artisan ? { artisan } : {};
+    const commanders = await Commander.find({ ...artisanFilter }).populate(
+      "client",
+      "prenom"
+    );
     res.send(commanders);
   })
 );
@@ -21,7 +26,7 @@ commanderRouter.get(
   "/mine",
   isAuth,
   expressAsyncHandler(async (req, res) => {
-    const commanders = await Commander.find({ client: req.user._id });
+    const commanders = await Commander.find({ client: req.client._id });
     res.send(commanders);
   })
 );
@@ -36,6 +41,7 @@ commanderRouter.post(
     } else {
       try {
         const commander = new Commander({
+          artisan: req.body.commanderProduits[0].artisan,
           commanderProduits: req.body.commanderProduits,
           shippingAddress: req.body.shippingAddress,
           paiement: req.body.paiement,
@@ -43,7 +49,7 @@ commanderRouter.post(
           shippingPrix: req.body.shippingPrix,
           taxPrix: req.body.taxPrix,
           totalPrix: req.body.totalPrix,
-          client: req.user._id,
+          client: req.client._id,
         });
         const createdCommander = await commander.save();
         res.status(201).send({
@@ -81,7 +87,7 @@ commanderRouter.put(
     if (commander) {
       commander.isPaid = true;
       commander.paidAt = Date.now();
-      commander.paymentResult = {
+      commander.paiementResult = {
         id: req.body.id,
         status: req.body.status,
         update_time: req.body.update_time,
@@ -99,7 +105,7 @@ commanderRouter.put(
 commanderRouter.delete(
   "/:id",
   isAuth,
-  isAdmin,
+  isArtisanOrAdmin,
   expressAsyncHandler(async (req, res) => {
     const commander = await Commander.findById(req.params.id);
     if (commander) {

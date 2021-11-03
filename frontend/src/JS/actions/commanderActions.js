@@ -117,25 +117,27 @@ export const listCommanderMine = () => async (dispatch, getState) => {
 };
 
 //getting all list of orders for the admin
-export const listCommanders = () => async (dispatch, getState) => {
-  dispatch({ type: COMMANDER_LIST_REQUEST });
-  const {
-    clientConnecter: { clientInfo },
-  } = getState();
-  try {
-    const { data } = await axios.get("/api/commanders", {
-      headers: { Authorization: `Bearer ${clientInfo.token}` },
-    });
-    console.log(data);
-    dispatch({ type: COMMANDER_LIST_SUCCESS, payload: data });
-  } catch (error) {
-    const message =
-      error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message;
-    dispatch({ type: COMMANDER_LIST_FAIL, payload: message });
-  }
-};
+export const listCommanders =
+  ({ artisan = "" }) =>
+  async (dispatch, getState) => {
+    dispatch({ type: COMMANDER_LIST_REQUEST });
+    const {
+      clientConnecter: { clientInfo },
+    } = getState();
+    try {
+      const { data } = await axios.get(`/api/commanders?artisan=${artisan}`, {
+        headers: { Authorization: `Bearer ${clientInfo.token}` },
+      });
+
+      dispatch({ type: COMMANDER_LIST_SUCCESS, payload: data });
+    } catch (error) {
+      const message =
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message;
+      dispatch({ type: COMMANDER_LIST_FAIL, payload: message });
+    }
+  };
 
 //deleting orders
 export const deleteCommander = (commanderId) => async (dispatch, getState) => {
