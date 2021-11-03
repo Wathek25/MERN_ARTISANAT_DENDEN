@@ -42,7 +42,7 @@ const ProduitListPage = (props) => {
     if (successDelete) {
       dispatch({ type: PRODUIT_DELETE_RESET });
     }
-    dispatch(listProduits({ artisan: artisanMode ? clientInfo._id : "" }));
+    dispatch(listProduits({ artisan: artisanMode ? clientInfo._id : " " }));
   }, [
     createdProduit,
     dispatch,

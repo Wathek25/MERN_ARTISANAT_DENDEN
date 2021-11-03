@@ -2,7 +2,7 @@ import express from "express";
 import expressAsyncHandler from "express-async-handler";
 import data from "../data.js";
 import Produit from "../models/produitModel.js";
-import { isAdmin, isArtisanOrAdmin, isAuth } from "../utils.js";
+import { isAdmin, isArtisan, isArtisanOrAdmin, isAuth } from "../utils.js";
 
 const produitRouter = express.Router();
 
@@ -86,7 +86,7 @@ produitRouter.put(
 produitRouter.delete(
   "/:id",
   isAuth,
-  isAdmin,
+  isArtisanOrAdmin,
   expressAsyncHandler(async (req, res) => {
     const produit = await Produit.findById(req.params.id);
     if (produit) {

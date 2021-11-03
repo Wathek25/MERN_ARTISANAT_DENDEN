@@ -23,6 +23,8 @@ const ProfilePage = () => {
   const clientDetails = useSelector((state) => state.clientDetails);
   const { loading, error, client } = clientDetails;
 
+  console.log(client);
+
   const clientUpdateProfile = useSelector((state) => state.clientUpdateProfile);
   const {
     success: successUpdate,
@@ -67,120 +69,122 @@ const ProfilePage = () => {
   };
   return (
     <div>
-      <form className="form" onSubmit={submitHandler}>
-        <div>
-          <h1>Profile Client</h1>
-        </div>
-        {loading ? (
-          <Loading />
-        ) : error ? (
-          <span style={{ color: "red" }}>
-            impossible de charger le profil client {error}
-          </span>
-        ) : (
-          <>
-            {loadingUpdate && <Loading />}
-            {errorUpdate && (
-              <span style={{ color: "red" }}>
-                une erreur s'est produite lors de la mise à jour du profil
-                {errorUpdate}
-              </span>
-            )}
-            {successUpdate && (
-              <span variant="success">Mise à jour du profil réussie</span>
-            )}
-            <div>
-              <label htmlFor="nom">Nom</label>
-              <input
-                id="nom"
-                type="text"
-                placeholder="Votre nom"
-                value={nom}
-                onChange={(e) => setNom(e.target.value)}
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="prenom">Prenom</label>
-              <input
-                id="prenom"
-                type="text"
-                placeholder="Votre prenom"
-                value={prenom}
-                onChange={(e) => setPrenom(e.target.value)}
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="email">Email</label>
-              <input
-                id="email"
-                type="email"
-                placeholder="Votre email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="password">Mot de passe</label>
-              <input
-                id="password"
-                type="password"
-                placeholder="Votre mot de passe"
-                onChange={(e) => setPassword(e.target.value)}
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="confirmPassword">confirmez mot de passe</label>
-              <input
-                id="confirmPassword"
-                type="password"
-                placeholder="confirmez mot de passe"
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              ></input>
-            </div>
-            {client.isArtisan && (
-              <>
-                <h2>Artisan</h2>
-                <div>
-                  <label htmlFor="artisanNom">Nom du l'artisan</label>
-                  <input
-                    id="artisanNom"
-                    type="text"
-                    placeholder="Votre nom"
-                    value={artisanNom}
-                    onChange={(e) => setArtisanNom(e.target.value)}
-                  ></input>
-                </div>
-                <div>
-                  <label htmlFor="artisanPrenom">Prenom du l'artisan</label>
-                  <input
-                    id="artisanPrenom"
-                    type="text"
-                    placeholder="Votre prenom"
-                    value={artisanPrenom}
-                    onChange={(e) => setArtisanPrenom(e.target.value)}
-                  ></input>
-                </div>
-                <div>
-                  <label htmlFor="artisanDescription">Description</label>
-                  <input
-                    id="artisanDescription"
-                    type="text"
-                    placeholder="Votre description"
-                    value={artisanDescription}
-                    onChange={(e) => setArtisanDescription(e.target.value)}
-                  ></input>
-                </div>
-              </>
-            )}
-            <div>
-              <label />
-              <button style={{ backgroundColor: "green" }} type="submit">
-                Envoyer
-              </button>
-            </div>
-          </>
-        )}
-      </form>
+      {client && (
+        <form className="form" onSubmit={submitHandler}>
+          <div>
+            <h1>Profile Client</h1>
+          </div>
+          {loading ? (
+            <Loading />
+          ) : error ? (
+            <span style={{ color: "red" }}>
+              impossible de charger le profil client {error}
+            </span>
+          ) : (
+            <>
+              {loadingUpdate && <Loading />}
+              {errorUpdate && (
+                <span style={{ color: "red" }}>
+                  une erreur s'est produite lors de la mise à jour du profil
+                  {errorUpdate}
+                </span>
+              )}
+              {successUpdate && (
+                <span variant="success">Mise à jour du profil réussie</span>
+              )}
+              <div>
+                <label htmlFor="nom">Nom</label>
+                <input
+                  id="nom"
+                  type="text"
+                  placeholder="Votre nom"
+                  value={nom}
+                  onChange={(e) => setNom(e.target.value)}
+                ></input>
+              </div>
+              <div>
+                <label htmlFor="prenom">Prenom</label>
+                <input
+                  id="prenom"
+                  type="text"
+                  placeholder="Votre prenom"
+                  value={prenom}
+                  onChange={(e) => setPrenom(e.target.value)}
+                ></input>
+              </div>
+              <div>
+                <label htmlFor="email">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="Votre email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                ></input>
+              </div>
+              <div>
+                <label htmlFor="password">Mot de passe</label>
+                <input
+                  id="password"
+                  type="password"
+                  placeholder="Votre mot de passe"
+                  onChange={(e) => setPassword(e.target.value)}
+                ></input>
+              </div>
+              <div>
+                <label htmlFor="confirmPassword">confirmez mot de passe</label>
+                <input
+                  id="confirmPassword"
+                  type="password"
+                  placeholder="confirmez mot de passe"
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                ></input>
+              </div>
+              {client.isArtisan && (
+                <>
+                  <h2>Artisan</h2>
+                  <div>
+                    <label htmlFor="artisanNom">Nom du l'artisan</label>
+                    <input
+                      id="artisanNom"
+                      type="text"
+                      placeholder="Votre nom"
+                      value={artisanNom}
+                      onChange={(e) => setArtisanNom(e.target.value)}
+                    ></input>
+                  </div>
+                  <div>
+                    <label htmlFor="artisanPrenom">Prenom du l'artisan</label>
+                    <input
+                      id="artisanPrenom"
+                      type="text"
+                      placeholder="Votre prenom"
+                      value={artisanPrenom}
+                      onChange={(e) => setArtisanPrenom(e.target.value)}
+                    ></input>
+                  </div>
+                  <div>
+                    <label htmlFor="artisanDescription">Description</label>
+                    <input
+                      id="artisanDescription"
+                      type="text"
+                      placeholder="Votre description"
+                      value={artisanDescription}
+                      onChange={(e) => setArtisanDescription(e.target.value)}
+                    ></input>
+                  </div>
+                </>
+              )}
+              <div>
+                <label />
+                <button style={{ backgroundColor: "green" }} type="submit">
+                  Envoyer
+                </button>
+              </div>
+            </>
+          )}
+        </form>
+      )}
     </div>
   );
 };
