@@ -105,7 +105,7 @@ const RegisterPage = (props) => {
           />
         </div>
 
-        <button type="submit" className="btn btn-primary btn-block">
+        <button type="submit" className="btn btn-success btn-block">
           Créer votre compte
         </button>
         <p className="forgot-password text-right">

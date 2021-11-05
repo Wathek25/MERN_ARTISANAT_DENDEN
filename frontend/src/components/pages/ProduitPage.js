@@ -68,18 +68,18 @@ const ProduitPage = (props) => {
                     Artisan
                     <h2>
                       <Link to={`/artisan/${produit.artisan._id}`}>
-                        {/* {produit.artisan.artisan.prenom} */}
+                        {produit.artisan.nom}
                       </Link>
                     </h2>
                     <h2>
                       <Link to={`/artisan/${produit.artisan._id}`}>
-                        {/* {produit.artisan.artisan.nom} */}
+                        {/* {produit.artisan.prenom} */}
                       </Link>
                     </h2>
-                    {/* <Rating
-                      rating={produit.artisan.artisan.rating}
-                      numReviews={produit.artisan.artisan.numReviews}
-                    ></Rating> */}
+                    <Rating
+                      rating={produit.rating}
+                      numReviews={produit.numReviews}
+                    ></Rating>
                   </li>
                   <li>
                     <div className="">

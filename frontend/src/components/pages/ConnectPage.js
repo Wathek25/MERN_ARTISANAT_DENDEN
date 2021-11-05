@@ -65,7 +65,7 @@ const ConnectPage = (props) => {
           />
         </div>
 
-        <button type="submit" className=" btn btn-primary btn-block">
+        <button type="submit" className=" btn btn-success btn-block">
           Connecter
         </button>
 

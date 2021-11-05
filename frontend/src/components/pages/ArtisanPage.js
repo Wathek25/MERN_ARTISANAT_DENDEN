@@ -23,16 +23,16 @@ const ArtisanPage = (props) => {
     dispatch(listProduits({ artisan: artisanId }));
   }, [dispatch, artisanId]);
   return (
-    <div className="row top">
-      <div className="col-1">
+    <div className="produit top">
+      <div className="col-3">
         {loading ? (
           <Loading />
         ) : error ? (
           <span>{error}</span>
         ) : (
-          <ul className="card card-body">
+          <ul className="">
             <li>
-              <div className="row start">
+              <div className="produit start">
                 <div className="p-1">
                   <h1>{client.artisan.nom}</h1>
                 </div>
@@ -59,7 +59,7 @@ const ArtisanPage = (props) => {
         ) : (
           <>
             {produits.length === 0 && <span>No Produit Found</span>}
-            <div className="row center">
+            <div className="produit center">
               {produits.map((produit) => (
                 <Produit key={produit._id} produit={produit}></Produit>
               ))}

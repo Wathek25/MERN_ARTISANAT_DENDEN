@@ -164,7 +164,7 @@ const NavbarC = () => {
                         color: "rgba(0,0,0,.55)",
                       }}
                     >
-                      Les Produits
+                      List des Produits
                     </Link>
                   </NavDropdown.Item>
                   <NavDropdown.Item>
@@ -175,7 +175,7 @@ const NavbarC = () => {
                         color: "rgba(0,0,0,.55)",
                       }}
                     >
-                      Les Commandes
+                      List des Commandes
                     </Link>
                   </NavDropdown.Item>
                 </NavDropdown>
@@ -185,24 +185,13 @@ const NavbarC = () => {
                 <NavDropdown title="Admin" id="basic-nav-dropdown">
                   <NavDropdown.Item>
                     <Link
-                      to="/dashboard"
-                      style={{
-                        textDecoration: "none",
-                        color: "rgba(0,0,0,.55)",
-                      }}
-                    >
-                      Dashboard
-                    </Link>
-                  </NavDropdown.Item>
-                  <NavDropdown.Item>
-                    <Link
                       to="/produitlist"
                       style={{
                         textDecoration: "none",
                         color: "rgba(0,0,0,.55)",
                       }}
                     >
-                      Les Produits
+                      List des Produits
                     </Link>
                   </NavDropdown.Item>
                   <NavDropdown.Item>
@@ -213,7 +202,7 @@ const NavbarC = () => {
                         color: "rgba(0,0,0,.55)",
                       }}
                     >
-                      Les Commandes
+                      List des Commandes
                     </Link>
                   </NavDropdown.Item>
                   <NavDropdown.Item>
@@ -224,7 +213,7 @@ const NavbarC = () => {
                         color: "rgba(0,0,0,.55)",
                       }}
                     >
-                      Les Clients
+                      List des Clients
                     </Link>
                   </NavDropdown.Item>
                   <NavDropdown.Item>
