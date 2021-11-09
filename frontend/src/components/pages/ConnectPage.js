@@ -23,6 +23,7 @@ const ConnectPage = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(connecter(email, password));
+
     // window.location.href = "/";
   };
 
@@ -33,50 +34,47 @@ const ConnectPage = (props) => {
   }, [props.history, redirect, clientInfo]);
 
   return (
-    <div>
-      <form onSubmit={submitHandler} className="form">
-        <h3>S'identifier</h3>
-        {loading && <Loading />}
-        {error && (
-          <h6 style={{ color: "red" }}>Email ou mot de passe invalide</h6>
-        )}
+    <form className="form" onSubmit={submitHandler}>
+      <h3>S'identifier</h3>
+      {loading && <Loading />}
+      {error && (
+        <h6 style={{ color: "red" }}>Email ou mot de passe incorrect</h6>
+      )}
 
-        <div className="">
-          <label>Votre Email</label>
-          <input
-            type="email"
-            className=""
-            placeholder="Entrez votre email"
-            id="email"
-            required
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
+      <div className="">
+        <label>Votre Email</label>
+        <input
+          type="email"
+          className=""
+          placeholder="Entrez votre email"
+          id="email"
+          required
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
 
-        <div className="">
-          <label>Votre mot de passe</label>
-          <input
-            type="password"
-            className=""
-            placeholder="Entrez votre mot de passe"
-            id="password"
-            required
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
+      <div className="">
+        <label>Votre mot de passe</label>
+        <input
+          type="password"
+          className=""
+          placeholder="Entrez votre mot de passe"
+          id="password"
+          required
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
 
-        <button type="submit" className=" btn btn-success btn-block">
-          Connecter
-        </button>
-
-        <p className="forgot-password text-right">
-          Nouveau utilisateur?{" "}
-          <Link to={`/register?redirect=${redirect}`}>
-            Créez votre compte ici
-          </Link>
-        </p>
-      </form>
-    </div>
+      <span className="forgot-password text-right">
+        Nouveau utilisateur?{" "}
+        <Link to={`/register?redirect=${redirect}`}>
+          Créez votre compte ici
+        </Link>
+      </span>
+      <button type="submit" className=" btn btn-success btn-block">
+        Connecter
+      </button>
+    </form>
   );
 };
 

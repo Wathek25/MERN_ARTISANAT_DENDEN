@@ -58,7 +58,7 @@ const Rating = ({ rating, numReviews }) => {
           }
         ></i>
       </span>
-      <span>{numReviews + " reviews"}</span>
+      <span>{numReviews}</span>
     </div>
   );
 };

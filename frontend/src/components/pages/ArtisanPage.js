@@ -34,7 +34,10 @@ const ArtisanPage = (props) => {
             <li>
               <div className="produit start">
                 <div className="p-1">
-                  <h1>{client.artisan.nom}</h1>
+                  <h1>
+                    {client.artisan.nom}
+                    <span> {client.artisan.prenom}</span>
+                  </h1>
                 </div>
               </div>
             </li>

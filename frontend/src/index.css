@@ -1,5 +1,5 @@
 html {
-  font-size: 90%; /* 16px x 62.5 = 10px = 1rem */
+  font-size: 85%; /* 16px x 62.5 = 10px = 1rem */
   box-sizing: border-box;
 }
 body {
@@ -314,14 +314,14 @@ img.large {
 
 /* Search */
 .search button {
-  border-radius: 0 0.5rem 0.5rem 0;
+  border-radius: 0 0.3rem 0.3rem 0;
   border-right: none;
-  margin-right: 0.5rem;
+  margin-right: 0.1rem;
 }
 .search input {
-  border-radius: 0.5rem 0 0 0.5rem;
+  border-radius: 0.3rem 0 0 0.3rem;
   border-right: none;
-  margin-left: 0.5rem;
+  margin-left: 0.1rem;
 }
 .active {
   font-weight: bold;
@@ -398,4 +398,31 @@ img.large {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+
+#basic-nav-dropdown {
+  color: white;
+}
+
+.block-home-description {
+  margin: auto;
+  width: 85%;
+  height: 300px;
+  color: white;
+  text-align: center;
+
+  background-color: #e5890a;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.block-home-description .home-description-content {
+  margin: 0;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }

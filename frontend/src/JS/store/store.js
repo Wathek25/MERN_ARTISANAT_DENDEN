@@ -26,6 +26,8 @@ import {
   produitCreateReducer,
   produitUpdateReducer,
   produitDeleteReducer,
+  produitCategorieListReducer,
+  produitReviewCreateReducer,
 } from "../reducers/produitReducers";
 
 const initialState = {
@@ -66,6 +68,8 @@ const reducer = combineReducers({
   clientList: clientListReducer,
   clientDelete: clientDeleteReducer,
   clientUpdate: clientUpdateReducer,
+  produitCategorieList: produitCategorieListReducer,
+  produitReviewCreate: produitReviewCreateReducer,
 });
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(

@@ -117,4 +117,37 @@ produitRouter.delete(
   })
 );
 
+produitRouter.post(
+  "/:id/reviews",
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const produitId = req.params.id;
+    const produit = await Produit.findById(produitId);
+    if (produit) {
+      if (produit.reviews.find((elm) => elm.nom === req.client.nom)) {
+        return res
+          .status(400)
+          .send({ message: "Vous avez déjà soumis un avis" });
+      }
+      const review = {
+        nom: req.client.nom,
+        rating: Number(req.body.rating),
+        comment: req.body.comment,
+      };
+      produit.reviews.push(review);
+      produit.numReviews = produit.reviews.length;
+      produit.rating =
+        produit.reviews.reduce((a, c) => c.rating + a, 0) /
+        produit.reviews.length;
+      const updatedProduit = await produit.save();
+      res.status(201).send({
+        message: "avis créé",
+        review: updatedProduit.reviews[updatedProduit.reviews.length - 1],
+      });
+    } else {
+      res.status(404).send({ message: "Produit inconnue" });
+    }
+  })
+);
+
 export default produitRouter;

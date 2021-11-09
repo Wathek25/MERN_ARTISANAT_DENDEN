@@ -17,6 +17,13 @@ import {
   PRODUIT_DELETE_SUCCESS,
   PRODUIT_DELETE_FAIL,
   PRODUIT_DELETE_RESET,
+  PRODUIT_CATEGORIE_LIST_SUCCESS,
+  PRODUIT_CATEGORIE_LIST_REQUEST,
+  PRODUIT_CATEGORIE_LIST_FAIL,
+  PRODUIT_REVIEW_CREATE_REQUEST,
+  PRODUIT_REVIEW_CREATE_SUCCESS,
+  PRODUIT_REVIEW_CREATE_FAIL,
+  PRODUIT_REVIEW_CREATE_RESET,
 } from "../constants/produitConstants";
 
 export const produitListReducer = (
@@ -29,6 +36,37 @@ export const produitListReducer = (
     case PRODUIT_LIST_SUCCESS:
       return { loading: false, produits: action.payload };
     case PRODUIT_LIST_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const produitReviewCreateReducer = (state = {}, action) => {
+  switch (action.type) {
+    case PRODUIT_REVIEW_CREATE_REQUEST:
+      return { loading: true };
+    case PRODUIT_REVIEW_CREATE_SUCCESS:
+      return { loading: false, success: true, review: action.payload };
+    case PRODUIT_REVIEW_CREATE_FAIL:
+      return { loading: false, error: action.payload };
+    case PRODUIT_REVIEW_CREATE_RESET:
+      return {};
+    default:
+      return state;
+  }
+};
+
+export const produitCategorieListReducer = (
+  state = { loading: true, products: [] },
+  action
+) => {
+  switch (action.type) {
+    case PRODUIT_CATEGORIE_LIST_REQUEST:
+      return { loading: true };
+    case PRODUIT_CATEGORIE_LIST_SUCCESS:
+      return { loading: false, categories: action.payload };
+    case PRODUIT_CATEGORIE_LIST_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;

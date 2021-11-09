@@ -70,6 +70,11 @@ function App() {
             path="/commanderhistorique"
             component={CommanderHistorique}
           ></Route>
+          <Route
+            path="/search/categorie/:categorie"
+            component={SearchPage}
+            exact
+          ></Route>
           <Route path="/search/nom/:nom?" component={SearchPage} exact></Route>
           <Route path="/commander" component={CommanderPage}></Route>
           <AdminRoute

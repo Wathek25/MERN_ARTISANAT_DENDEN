@@ -27,7 +27,7 @@ import {
   CLIENT_UPDATE_SUCCESS,
 } from "../../JS/constants/clientConstants";
 
-export const clientRegisterReducer = (state = {}, action) => {
+export const clientConnectReducer = (state = {}, action) => {
   switch (action.type) {
     case CLIENT_CONNECT_REQUEST:
       return { loading: true };
@@ -72,7 +72,7 @@ export const clientDetailsReducer = (state = { loading: true }, action) => {
   }
 };
 
-export const clientConnectReducer = (state = {}, action) => {
+export const clientRegisterReducer = (state = {}, action) => {
   switch (action.type) {
     case CLIENT_REGISTER_REQUEST:
       return { loading: true };

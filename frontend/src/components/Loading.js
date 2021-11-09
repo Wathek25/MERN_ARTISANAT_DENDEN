@@ -4,7 +4,7 @@ const Loading = () => {
   return (
     <div>
       <img
-        src="https://res.cloudinary.com/dbc5f1w2q/image/upload/v1635799294/loading%20spinner/teahub.io-hd-trk-bayra-wallpaper-2267889_y6zyss.gif"
+        src="https://cdn.dribbble.com/users/108183/screenshots/2301400/media/6af65dd321fbdf53a04ed7464a644f53.gif"
         alt="loading_img"
       />
     </div>

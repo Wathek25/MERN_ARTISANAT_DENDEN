@@ -74,7 +74,7 @@ export const detailsClient = (clientId) => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await axios.get(`/api/clients/${clientId}`, {
-      headers: { Authorization: `Bearer ${clientInfo.token}` },
+      // headers: { Authorization: `Bearer ${clientInfo.token}` },
     });
     dispatch({ type: CLIENT_DETAILS_SUCCESS, payload: data });
   } catch (error) {

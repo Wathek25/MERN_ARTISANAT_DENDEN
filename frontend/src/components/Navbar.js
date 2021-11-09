@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Navbar,
   Container,
@@ -13,6 +13,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { signout } from "../JS/actions/clientActions";
 import { useHistory } from "react-router-dom";
 import SearchBox from "./SearchBox";
+import { listProduitCategories } from "../JS/actions/produitActions";
+import Loading from "./Loading";
 
 const NavbarC = () => {
   const panier = useSelector((state) => state.panier);
@@ -38,29 +40,38 @@ const NavbarC = () => {
     window.location.reload();
   };
 
+  const produitCategorieList = useSelector(
+    (state) => state.produitCategorieList
+  );
+  const {
+    loading: loadingCategories,
+    error: errorCategories,
+    categories,
+  } = produitCategorieList;
+  useEffect(() => {
+    dispatch(listProduitCategories());
+  }, [dispatch]);
+
   return (
     <div>
-      <Navbar bg="light" expand="lg">
+      <Navbar expand="lg" style={{ backgroundColor: "#203040" }}>
         <Container>
           <Navbar.Brand>
-            <Link
-              to="/"
-              style={{ textDecoration: "none", color: "rgba(0,0,0,.55)" }}
-            >
-              VillageArt<span style={{ color: "green" }}>Denden</span>
+            <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+              <strong>
+                VillageArt<span className="text-success">Denden</span>
+              </strong>
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link>
-                <Link
-                  to="/"
-                  style={{ textDecoration: "none", color: "rgba(0,0,0,.55)" }}
-                >
-                  Acceuil
+                <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+                  <i className="fa fa-fw fa-home"></i>Acceuil
                 </Link>
               </Nav.Link>
+
               <NavDropdown title="Nos artisans" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/peinture">
                   Peinture sur le bois
@@ -76,21 +87,34 @@ const NavbarC = () => {
                 <NavDropdown.Item href="/verre">Verre Soufflé</NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title="Catégories" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">
-                  Artisans 1
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Artisans 2
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Artisans 3
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
+                <Nav.Link>
+                  {loadingCategories ? (
+                    <Loading />
+                  ) : errorCategories ? (
+                    <span>{errorCategories}</span>
+                  ) : (
+                    categories.map((c) => (
+                      <NavDropdown.Item key={c}>
+                        <Link
+                          to={`/search/categorie/${c}`}
+                          style={{
+                            textDecoration: "none",
+                            color: "rgba(0,0,0,.55)",
+                          }}
+                        >
+                          {c}
+                        </Link>
+                      </NavDropdown.Item>
+                    ))
+                  )}
+                </Nav.Link>
+
+                {/* <NavDropdown.Divider /> */}
               </NavDropdown>
               <Nav.Link>
                 <Link
                   to="/events"
-                  style={{ textDecoration: "none", color: "rgba(0,0,0,.55)" }}
+                  style={{ textDecoration: "none", color: "white" }}
                 >
                   Événements
                 </Link>
@@ -98,7 +122,7 @@ const NavbarC = () => {
               <Nav.Link>
                 <Link
                   to="/blogs"
-                  style={{ textDecoration: "none", color: "rgba(0,0,0,.55)" }}
+                  style={{ textDecoration: "none", color: "white" }}
                 >
                   Blogs
                 </Link>
@@ -106,12 +130,19 @@ const NavbarC = () => {
               <Nav.Link>
                 <Link
                   to="/panier"
-                  style={{ textDecoration: "none", color: "rgba(0,0,0,.55)" }}
+                  style={{ textDecoration: "none", color: "white" }}
                 >
+                  <i className="fa fa-fw fa-shopping-cart"></i>
                   Panier
                 </Link>
               </Nav.Link>
-              <NavDropdown title="Connecter" id="basic-nav-dropdown">
+
+              <NavDropdown
+                // title="Connecter"
+                title={<i className="fa fa-fw fa-user"></i>}
+                id="basic-nav-dropdown"
+                style={{ color: "white" }}
+              >
                 {clientInfo ? (
                   <div>
                     {clientInfo.prenom}
@@ -162,7 +193,6 @@ const NavbarC = () => {
                   </Link>
                 )}
               </NavDropdown>
-
               {clientInfo && clientInfo.isArtisan && (
                 <NavDropdown title="Artisan" id="basic-nav-dropdown">
                   <NavDropdown.Item>
@@ -189,7 +219,6 @@ const NavbarC = () => {
                   </NavDropdown.Item>
                 </NavDropdown>
               )}
-
               {clientInfo && clientInfo.isAdmin && (
                 <NavDropdown title="Admin" id="basic-nav-dropdown">
                   <NavDropdown.Item>
@@ -241,7 +270,7 @@ const NavbarC = () => {
                       to="/createevenement"
                       style={{
                         textDecoration: "none",
-                        color: "rgba(0,0,0,.55)",
+                        color: "white",
                       }}
                     >
                       Ajouter Événements

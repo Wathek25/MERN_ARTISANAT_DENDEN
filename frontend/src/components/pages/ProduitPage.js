@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../Loading";
 import Error from "../Error";
-import { detailsProduit } from "../../JS/actions/produitActions";
+import { createReview, detailsProduit } from "../../JS/actions/produitActions";
+import { PRODUIT_REVIEW_CREATE_RESET } from "../../JS/constants/produitConstants";
 
 const ProduitPage = (props) => {
   const dispatch = useDispatch();
@@ -13,12 +14,42 @@ const ProduitPage = (props) => {
   const [quantite, setQuantite] = useState(1);
   const { loading, error, produit } = produitDetails;
 
+  const clientConnecter = useSelector((state) => state.clientConnecter);
+  const { clientInfo } = clientConnecter;
+
+  const produitReviewCreate = useSelector((state) => state.produitReviewCreate);
+  const {
+    loading: loadingReviewCreate,
+    error: errorReviewCreate,
+    success: successReviewCreate,
+  } = produitReviewCreate;
+
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState("");
+
   useEffect(() => {
+    if (successReviewCreate) {
+      window.alert("Succès");
+      setRating("");
+      setComment("");
+      dispatch({ type: PRODUIT_REVIEW_CREATE_RESET });
+    }
     dispatch(detailsProduit(produitId));
-  }, [dispatch, produitId]);
+  }, [dispatch, produitId, successReviewCreate]);
 
   const ajoutAuPanier = () => {
     props.history.push(`/panier/${produitId}?quantite=${quantite}`);
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (comment && rating) {
+      dispatch(
+        createReview(produitId, { rating, comment, nom: clientInfo.nom })
+      );
+    } else {
+      alert("Veuillez entrer un commentaire et une note");
+    }
   };
 
   return (
@@ -64,8 +95,8 @@ const ProduitPage = (props) => {
             <div className="">
               <div className="">
                 <ul>
-                  <li>
-                    {/* Artisan */}
+                  {/* <li>
+                    Artisan
                     <h2>
                       <Link to={`/artisan/${produit.artisan._id}`}>
                         {produit.artisan.nom}
@@ -73,14 +104,14 @@ const ProduitPage = (props) => {
                     </h2>
                     <h2>
                       <Link to={`/artisan/${produit.artisan._id}`}>
-                        {/* {produit.artisan.prenom} */}
+                        {produit.artisan.prenom}
                       </Link>
                     </h2>
-                    {/* <Rating
+                    <Rating
                       rating={produit.rating}
                       numReviews={produit.numReviews}
-                    ></Rating> */}
-                  </li>
+                    ></Rating>
+                  </li> */}
                   <li>
                     <div className="">
                       <div>Prix</div>
@@ -131,6 +162,67 @@ const ProduitPage = (props) => {
                 </ul>
               </div>
             </div>
+          </div>
+          <div>
+            <h2 id="reviews">Avis</h2>
+            {produit.reviews.length === 0 && <span>Aucun Avis</span>}
+            <ul>
+              {produit.reviews.map((review) => (
+                <li key={review._id}>
+                  <strong>{review.nom}</strong>
+                  <Rating rating={review.rating} caption=" "></Rating>
+                  <p>{review.createdAt.substring(0, 10)}</p>
+                  <p>{review.comment}</p>
+                </li>
+              ))}
+              <li>
+                {clientInfo ? (
+                  <form className="form" onSubmit={submitHandler}>
+                    <div>
+                      <h2>Donnez votre avis</h2>
+                    </div>
+                    <div>
+                      <label htmlFor="rating">Rating</label>
+                      <select
+                        id="rating"
+                        value={rating}
+                        onChange={(e) => setRating(e.target.value)}
+                      >
+                        <option value="">Select...</option>
+                        <option value="1">1- Mauvais</option>
+                        <option value="2">2- Acceptable</option>
+                        <option value="3">3- Bon</option>
+                        <option value="4">4- Très bon</option>
+                        <option value="5">5- Excellent</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="comment">Comment</label>
+                      <textarea
+                        id="comment"
+                        value={comment}
+                        onChange={(e) => setComment(e.target.value)}
+                      ></textarea>
+                    </div>
+                    <div>
+                      <label />
+                      <button className="primary" type="submit">
+                        Submit
+                      </button>
+                    </div>
+                    <div>
+                      {loadingReviewCreate && <Loading />}
+                      {errorReviewCreate && <span>{errorReviewCreate}</span>}
+                    </div>
+                  </form>
+                ) : (
+                  <span>
+                    Svp <Link to="/connecter">se connecetr</Link> pour donner
+                    votre avis
+                  </span>
+                )}
+              </li>
+            </ul>
           </div>
         </div>
       )}

@@ -6,13 +6,33 @@ import Loading from "../Loading";
 import Produit from "../Produit";
 
 const SearchPage = (props) => {
-  const { nom = "all" } = useParams();
+  const { nom = "all", categorie = "all" } = useParams();
   const dispatch = useDispatch();
   const produitList = useSelector((state) => state.produitList);
   const { loading, error, produits } = produitList;
+  const produitCategorieList = useSelector(
+    (state) => state.produitCategorieList
+  );
+  const {
+    loading: loadingCategories,
+    error: errorCategories,
+    categories,
+  } = produitCategorieList;
+
   useEffect(() => {
-    dispatch(listProduits({ nom: nom !== "all" ? nom : "" }));
-  }, [dispatch, nom]);
+    dispatch(
+      listProduits({
+        nom: nom !== "all" ? nom : "",
+        categorie: categorie !== "all" ? categorie : "",
+      })
+    );
+  }, [categorie, dispatch, nom]);
+
+  const getFilterUrl = (filter) => {
+    const filterCategorie = filter.categorie || categorie;
+    const filterNom = filter.nom || nom;
+    return `/search/categorie/${filterCategorie}/nom/${filterNom}`;
+  };
   return (
     <div>
       <div className="row">
@@ -25,12 +45,27 @@ const SearchPage = (props) => {
         )}
       </div>
       <div className="row top">
-        <div className="col-1">
+        {/* <div className="col-1">
           <h3>Department</h3>
-          <ul>
-            <li>Catégorie</li>
-          </ul>
-        </div>
+          {loadingCategories ? (
+            <Loading />
+          ) : errorCategories ? (
+            <span>{errorCategories}</span>
+          ) : (
+            <ul>
+              {categories.map((c) => (
+                <li key={c}>
+                  <Link
+                    className={c === categorie ? "active" : ""}
+                    to={getFilterUrl({ categorie: c })}
+                  >
+                    {c}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div> */}
         <div className="col-3">
           {loading ? (
             <Loading />
