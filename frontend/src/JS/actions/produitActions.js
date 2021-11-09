@@ -18,13 +18,15 @@ import {
 } from "../constants/produitConstants";
 
 export const listProduits =
-  ({ artisan = "" }) =>
+  ({ artisan = "", nom = "" }) =>
   async (dispatch) => {
     dispatch({
       type: PRODUIT_LIST_REQUEST,
     });
     try {
-      const { data } = await axios.get(`/api/produits?artisan=${artisan}`);
+      const { data } = await axios.get(
+        `/api/produits?artisan=${artisan}&nom=${nom}`
+      );
       dispatch({ type: PRODUIT_LIST_SUCCESS, payload: data });
     } catch (error) {
       dispatch({ type: PRODUIT_LIST_FAIL, payload: error.message });

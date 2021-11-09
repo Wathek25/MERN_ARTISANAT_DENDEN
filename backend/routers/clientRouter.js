@@ -7,14 +7,14 @@ import { generateToken, isAdmin, isAuth } from "../utils.js";
 
 const clientRouter = express.Router();
 
-clientRouter.get(
-  "/seed",
-  expressAsyncHandler(async (req, res) => {
-    // await Client.remove({});
-    const createdClients = await Client.insertMany(data.clients);
-    res.send({ createdClients });
-  })
-);
+// clientRouter.get(
+//   "/seed",
+//   expressAsyncHandler(async (req, res) => {
+//     // await Client.remove({});
+//     const createdClients = await Client.insertMany(data.clients);
+//     res.send({ createdClients });
+//   })
+// );
 
 clientRouter.post(
   "/connecter",

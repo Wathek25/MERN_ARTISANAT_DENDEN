@@ -1,9 +1,18 @@
 import React, { useEffect } from "react";
-import { Navbar, Container, NavDropdown, Nav } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
+import {
+  Navbar,
+  Container,
+  NavDropdown,
+  Nav,
+  Form,
+  FormControl,
+  Button,
+} from "react-bootstrap";
+import { Link, NavLink, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signout } from "../JS/actions/clientActions";
 import { useHistory } from "react-router-dom";
+import SearchBox from "./SearchBox";
 
 const NavbarC = () => {
   const panier = useSelector((state) => state.panier);
@@ -241,6 +250,11 @@ const NavbarC = () => {
                 </NavDropdown>
               )}
             </Nav>
+            <Route
+              render={({ history }) => (
+                <SearchBox history={history}></SearchBox>
+              )}
+            ></Route>
           </Navbar.Collapse>
         </Container>
       </Navbar>

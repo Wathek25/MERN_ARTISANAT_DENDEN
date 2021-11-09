@@ -10,13 +10,29 @@ produitRouter.get(
   "/",
   expressAsyncHandler(async (req, res) => {
     // const produits = await Produit.find({});
+    const nom = req.query.nom || "";
+    const categorie = req.query.categorie || "";
     const artisan = req.query.artisan || "";
+    const nomFilter = nom ? { nom: { $regex: nom, $options: "i" } } : {};
     const artisanFilter = artisan ? { artisan } : {};
-    const produits = await Produit.find({ ...artisanFilter }).populate(
+    const categorieFilter = categorie ? { categorie } : {};
+    const produits = await Produit.find({
+      ...artisanFilter,
+      ...nomFilter,
+      ...categorieFilter,
+    }).populate(
       "artisan",
       "artisan.nom artisan.prenom artisan.rating artisan.numReviews"
     );
     res.send(produits);
+  })
+);
+
+produitRouter.get(
+  "/categories",
+  expressAsyncHandler(async (req, res) => {
+    const categories = await Produit.find().distinct("categorie");
+    res.send(categories);
   })
 );
 

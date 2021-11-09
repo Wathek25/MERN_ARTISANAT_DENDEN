@@ -37,6 +37,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import ClientModiferPage from "./components/pages/ClientModiferPage";
 import ArtisanRoute from "./components/ArtisanRoute";
 import ArtisanPage from "./components/pages/ArtisanPage";
+import SearchPage from "./components/pages/SearchPage";
 
 function App() {
   return (
@@ -69,6 +70,7 @@ function App() {
             path="/commanderhistorique"
             component={CommanderHistorique}
           ></Route>
+          <Route path="/search/nom/:nom?" component={SearchPage} exact></Route>
           <Route path="/commander" component={CommanderPage}></Route>
           <AdminRoute
             exact
