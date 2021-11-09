@@ -31,7 +31,12 @@ const Produit = (props) => {
           <div className="produit">
             <div className="prix">{produit.prix} Dt</div>
             <div>
-              <Link to={`/artisan/${produit.artisan._id}`}>
+              <span>Vendu par</span>
+              <br />
+              <Link
+                to={`/artisan/${produit.artisan._id}`}
+                style={{ textDecoration: "none", color: "#e5890a" }}
+              >
                 {produit.artisan.artisan.prenom}
               </Link>
             </div>

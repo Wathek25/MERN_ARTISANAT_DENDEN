@@ -205,7 +205,7 @@ img.large {
   padding: 1rem;
 }
 .card-body > * {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.1rem;
 }
 .price {
   font-size: 2rem;
@@ -287,8 +287,8 @@ img.large {
   font-weight: bold;
 }
 .checkout-steps > div.active {
-  border-top-color: #f08000;
-  color: #f08000;
+  border-top-color: #e5890a;
+  color: #e5890a;
 }
 /* Table */
 .table {
@@ -406,8 +406,8 @@ img.large {
 
 .block-home-description {
   margin: auto;
-  width: 85%;
-  height: 300px;
+  width: 80%;
+  height: 190px;
   color: white;
   text-align: center;
 

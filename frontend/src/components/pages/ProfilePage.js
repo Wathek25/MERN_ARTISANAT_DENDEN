@@ -92,6 +92,7 @@ const ProfilePage = () => {
               {successUpdate && (
                 <span variant="success">Mise à jour du profil réussie</span>
               )}
+
               <div>
                 <label htmlFor="nom">Nom</label>
                 <input
@@ -177,7 +178,7 @@ const ProfilePage = () => {
               )}
               <div>
                 <label />
-                <button style={{ backgroundColor: "green" }} type="submit">
+                <button style={{ backgroundColor: "#e5890a" }} type="submit">
                   Envoyer
                 </button>
               </div>

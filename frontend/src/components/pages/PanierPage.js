@@ -27,15 +27,21 @@ const PanierPage = (props) => {
   };
 
   return (
-    <div className="produit">
+    <div className="produit top">
       <div className="col-3">
-        <h1>Votre Panier</h1>
+        <h2>Votre Panier</h2>
         {panierProduits.length === 0 ? (
-          <p>
-            Panier est vide. <Link to="/">Accueil</Link>
-          </p>
+          <h3>
+            Panier est vide !
+            <Link
+              to="/"
+              style={{ textDecoration: "underline", color: "#e5890a" }}
+            >
+              <h4>Acceuil</h4>
+            </Link>
+          </h3>
         ) : (
-          <ul className="produit">
+          <ul>
             {panierProduits.map((produit) => (
               <li key={produit.produit}>
                 <div className="produit">
@@ -96,7 +102,7 @@ const PanierPage = (props) => {
               <button
                 type="button"
                 onClick={checkoutHandler}
-                style={{ backgroundColor: "green" }}
+                style={{ backgroundColor: "#e5890a" }}
                 disabled={panierProduits.length === 0}
               >
                 Finaliser Votre Commande

@@ -42,7 +42,9 @@ const ConnectPage = (props) => {
       )}
 
       <div className="">
-        <label>Votre Email</label>
+        <label>
+          <strong>Votre Email</strong>
+        </label>
         <input
           type="email"
           className=""
@@ -54,7 +56,9 @@ const ConnectPage = (props) => {
       </div>
 
       <div className="">
-        <label>Votre mot de passe</label>
+        <label>
+          <strong>Votre mot de passe</strong>
+        </label>
         <input
           type="password"
           className=""
@@ -64,6 +68,11 @@ const ConnectPage = (props) => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
+      <div>
+        <button type="submit" style={{ backgroundColor: "#e5890a" }}>
+          Connecter
+        </button>
+      </div>
 
       <span className="forgot-password text-right">
         Nouveau utilisateur?{" "}
@@ -71,9 +80,6 @@ const ConnectPage = (props) => {
           Créez votre compte ici
         </Link>
       </span>
-      <button type="submit" className=" btn btn-success btn-block">
-        Connecter
-      </button>
     </form>
   );
 };

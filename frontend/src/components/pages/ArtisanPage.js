@@ -30,7 +30,7 @@ const ArtisanPage = (props) => {
         ) : error ? (
           <span>{error}</span>
         ) : (
-          <ul className="">
+          <ul className="card card-body">
             <li>
               <div className="produit start">
                 <div className="p-1">
@@ -42,26 +42,20 @@ const ArtisanPage = (props) => {
               </div>
             </li>
             <li>
-              <Rating
-                rating={client.artisan.rating}
-                numReviews={client.artisan.numReviews}
-              ></Rating>
-            </li>
-            <li>
               <a href={`mailto:${client.email}`}>Contact artisan</a>
             </li>
             <li>{client.artisan.description}</li>
           </ul>
         )}
       </div>
-      <div className="col-3">
+      <div className="col-5">
         {loadingProduits ? (
           <Loading />
         ) : errorProduits ? (
           <span>{errorProduits}</span>
         ) : (
           <>
-            {produits.length === 0 && <span>No Produit Found</span>}
+            {produits.length === 0 && <span>Aucun produit trouvé</span>}
             <div className="produit center">
               {produits.map((produit) => (
                 <Produit key={produit._id} produit={produit}></Produit>

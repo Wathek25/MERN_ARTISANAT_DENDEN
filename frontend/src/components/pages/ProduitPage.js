@@ -60,20 +60,26 @@ const ProduitPage = (props) => {
         <Error />
       ) : (
         <div>
-          <h3>Page Produit</h3>
-          <Link to="/">Acceuil</Link>
+          <Link
+            to="/"
+            style={{ textDecoration: "underline", color: "#e5890a" }}
+          >
+            <h4>Acceuil</h4>
+          </Link>
+          <h1>Vos Produit</h1>
+
           <div className="produit top">
-            <div className="col-2">
+            <div className="col-3">
               <img
                 className="large"
                 src={produit.image}
                 alt={produit.nom}
               ></img>
             </div>
-            <div className="">
+            <div className="col-5">
               <ul>
                 <li>
-                  <h1>{produit.nom}</h1>
+                  <h3>{produit.nom}</h3>
                 </li>
                 <li>
                   <Rating
@@ -81,13 +87,15 @@ const ProduitPage = (props) => {
                     numReviews={produit.numReviews}
                   ></Rating>
                 </li>
-                <li>Pix : {produit.prix} Dt</li>
                 <li>
-                  Catégorie:
+                  <strong>Prix : {produit.prix} Dt</strong>
+                </li>
+                <li>
+                  <strong>Catégorie:</strong>
                   <span> {produit.categorie}</span>
                 </li>
                 <li>
-                  Description:
+                  <strong>Description:</strong>
                   <p>{produit.description}</p>
                 </li>
               </ul>
@@ -114,13 +122,17 @@ const ProduitPage = (props) => {
                   </li> */}
                   <li>
                     <div className="">
-                      <div>Prix</div>
+                      <div>
+                        <strong>Prix</strong>
+                      </div>
                       <div className="price">{produit.prix} Dt</div>
                     </div>
                   </li>
                   <li>
                     <div className="">
-                      <div>Status</div>
+                      <div>
+                        <strong>Status</strong>
+                      </div>
                       <div>
                         {produit.stock > 0 ? (
                           <span className="success">En stock</span>
@@ -134,7 +146,9 @@ const ProduitPage = (props) => {
                     <>
                       <li>
                         <div className="row">
-                          <div>Quantité</div>
+                          <div>
+                            <strong>Quantité</strong>
+                          </div>
                           <div>
                             <select
                               value={quantite}
@@ -152,7 +166,7 @@ const ProduitPage = (props) => {
                       <li>
                         <button
                           onClick={ajoutAuPanier}
-                          style={{ backgroundColor: "green" }}
+                          style={{ backgroundColor: "#e5890a" }}
                         >
                           Ajouter au panier
                         </button>
@@ -206,8 +220,11 @@ const ProduitPage = (props) => {
                     </div>
                     <div>
                       <label />
-                      <button className="primary" type="submit">
-                        Submit
+                      <button
+                        style={{ backgroundColor: "#e5890a" }}
+                        type="submit"
+                      >
+                        Envoyer
                       </button>
                     </div>
                     <div>

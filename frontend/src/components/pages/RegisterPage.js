@@ -38,7 +38,7 @@ const RegisterPage = (props) => {
 
   return (
     <div>
-      <form onSubmit={submitHandler}>
+      <form className="form" onSubmit={submitHandler}>
         <h3>S'inscrire</h3>
         {loading && <Loading />}
         {error && (
@@ -46,10 +46,11 @@ const RegisterPage = (props) => {
         )}
 
         <div className="form-group">
-          <label>Votre Prenom</label>
+          <label>
+            <strong>Votre Prenom</strong>
+          </label>
           <input
             type="prenom"
-            className="form-control"
             placeholder="Entrez votre prenom"
             id="prenom"
             required
@@ -58,10 +59,11 @@ const RegisterPage = (props) => {
         </div>
 
         <div className="form-group">
-          <label>Votre Nom</label>
+          <label>
+            <strong>Votre Nom</strong>
+          </label>
           <input
             type="nom"
-            className="form-control"
             placeholder="Entrez votre nom"
             id="nom"
             required
@@ -70,10 +72,11 @@ const RegisterPage = (props) => {
         </div>
 
         <div className="form-group">
-          <label>Votre Email</label>
+          <label>
+            <strong>Votre Email</strong>
+          </label>
           <input
             type="email"
-            className="form-control"
             placeholder="Entrez votre email"
             id="email"
             required
@@ -82,10 +85,11 @@ const RegisterPage = (props) => {
         </div>
 
         <div className="form-group">
-          <label>Votre mot de passe</label>
+          <label>
+            <strong>Votre mot de passe</strong>
+          </label>
           <input
             type="password"
-            className="form-control"
             placeholder="Entrez votre mot de passe"
             id="password"
             required
@@ -94,24 +98,26 @@ const RegisterPage = (props) => {
         </div>
 
         <div className="form-group">
-          <label>Confirmer Votre mot de passe</label>
+          <label>
+            <strong>Confirmer Votre mot de passe</strong>
+          </label>
           <input
             type="password"
-            className="form-control"
             placeholder="Confirmer Votre mot de passe"
             id="ConfirmPassword"
             required
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
-
-        <button type="submit" className="btn btn-success btn-block">
-          Créer votre compte
-        </button>
-        <p className="forgot-password text-right">
+        <div>
+          <button type="submit" style={{ backgroundColor: "#e5890a" }}>
+            Créer votre compte
+          </button>
+        </div>
+        <span className="forgot-password text-right">
           Vous avez déjà un compte?
-          <Link to={`/connecter?redirect=${redirect}`}>click ici</Link>
-        </p>
+          <Link to={`/connecter?redirect=${redirect}`}>Cliquez ici</Link>
+        </span>
       </form>
     </div>
   );

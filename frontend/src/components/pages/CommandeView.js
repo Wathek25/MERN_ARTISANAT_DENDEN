@@ -98,7 +98,7 @@ const CommandeView = (props) => {
                 <ul>
                   {commander.commanderProduits.map((produit) => (
                     <li key={produit.produit}>
-                      <div className="row">
+                      <div className="produit">
                         <div>
                           <img
                             src={produit.image}
@@ -131,31 +131,35 @@ const CommandeView = (props) => {
                 <h2>Récapitulatif de la commande</h2>
               </li>
               <li>
-                <div className="row">
-                  <div>prix</div>
+                <div className="produit">
+                  <div>
+                    <strong>Prix</strong>
+                  </div>
                   <div>{commander.produitsPrix.toFixed(2)} Dt</div>
                 </div>
               </li>
               <li>
-                <div className="row">
-                  <div>Shipping</div>
+                <div className="produit">
+                  <div>
+                    <strong>Livraison</strong>
+                  </div>
                   <div>{commander.shippingPrix.toFixed(2)} Dt</div>
                 </div>
               </li>
               <li>
-                <div className="row">
-                  <div>Tax</div>
+                <div className="produit">
+                  <div>
+                    <strong>Tax</strong>
+                  </div>
                   <div>{commander.taxPrix.toFixed(2)} Dt</div>
                 </div>
               </li>
               <li>
-                <div className="row">
+                <div className="produit">
                   <div>
                     <strong> Totale </strong>
                   </div>
-                  <div>
-                    <strong>{commander.totalPrix.toFixed(2)} Dt</strong>
-                  </div>
+                  <div>{commander.totalPrix.toFixed(2)} Dt</div>
                 </div>
               </li>
               {!commander.isPaid && (

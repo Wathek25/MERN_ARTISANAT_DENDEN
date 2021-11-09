@@ -72,7 +72,7 @@ const CommanderPage = (props) => {
                 <ul>
                   {panier.panierProduits.map((produit) => (
                     <li key={produit.produit}>
-                      <div className="row">
+                      <div className="produit">
                         <div>
                           <img
                             src={produit.image}
@@ -105,38 +105,42 @@ const CommanderPage = (props) => {
                 <h2>Récapitulatif de la commande</h2>
               </li>
               <li>
-                <div className="row">
-                  <div>produits</div>
+                <div className="produit">
+                  <div>
+                    <strong>Produits</strong>
+                  </div>
                   <div>{panier.produitsPrix.toFixed(2)} Dt</div>
                 </div>
               </li>
               <li>
-                <div className="row">
-                  <div>Shipping</div>
+                <div className="produit">
+                  <div>
+                    <strong>livraison</strong>
+                  </div>
                   <div>{panier.shippingPrix.toFixed(2)} Dt</div>
                 </div>
               </li>
               <li>
-                <div className="row">
-                  <div>Tax</div>
+                <div className="produit">
+                  <div>
+                    <strong>Tax</strong>
+                  </div>
                   <div>{panier.taxPrix.toFixed(2)} Dt</div>
                 </div>
               </li>
               <li>
-                <div className="row">
+                <div className="produit">
                   <div>
                     <strong> Totale </strong>
                   </div>
-                  <div>
-                    <strong>{panier.totalPrix.toFixed(2)} Dt</strong>
-                  </div>
+                  <div>{panier.totalPrix.toFixed(2)} Dt</div>
                 </div>
               </li>
               <li>
                 <button
                   type="button"
                   onClick={commanderHandler}
-                  style={{ backgroundColor: "green" }}
+                  style={{ backgroundColor: "#e5890a" }}
                   disabled={panier.panierProduits.length === 0}
                 >
                   Commander

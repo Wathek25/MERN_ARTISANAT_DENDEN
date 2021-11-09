@@ -37,10 +37,8 @@ const Acceuil = () => {
             VillageArtDenden
             <p>
               VillageArtDenden est une plateforme numérique destinée à la
-              promotion du métier d’artisan et des produits du terroir Tunisien.
-              C’est un lieu de rencontre des créateurs qui a pour ambition de
-              devenir le marketplace incontournable de promotion des artisans de
-              tous horizons et des «Petits Métiers» en voie de déperdition.
+              promotion du métier d’artisan et des produits du village artisanal
+              denden.
             </p>
           </h3>
         </div>
