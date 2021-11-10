@@ -5,7 +5,7 @@ import { isAuth, isAdmin, isArtisanOrAdmin } from "../utils.js";
 
 const commanderRouter = express.Router();
 
-//getting all orders for the admin
+//getting all orders (les commandes) for the admin
 commanderRouter.get(
   "/",
   isAuth,
@@ -21,7 +21,7 @@ commanderRouter.get(
   })
 );
 
-//historique des commande
+//history of orders (les commande) for clients
 commanderRouter.get(
   "/mine",
   isAuth,
@@ -35,7 +35,6 @@ commanderRouter.post(
   "/",
   isAuth,
   expressAsyncHandler(async (req, res) => {
-    // console.log("body", req.body);
     if (req.body.commanderProduits.length === 0) {
       res.status(400).send({ message: "Panier est vide" });
     } else {
@@ -64,6 +63,7 @@ commanderRouter.post(
   })
 );
 
+// to get the id of the order (commande)
 commanderRouter.get(
   "/:id",
   isAuth,
@@ -101,7 +101,7 @@ commanderRouter.put(
   })
 );
 
-//to delete orders by admin
+//to delete orders (les commandes) by admin
 commanderRouter.delete(
   "/:id",
   isAuth,

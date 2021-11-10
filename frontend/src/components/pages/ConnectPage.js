@@ -23,8 +23,6 @@ const ConnectPage = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(connecter(email, password));
-
-    // window.location.href = "/";
   };
 
   useEffect(() => {
@@ -75,7 +73,7 @@ const ConnectPage = (props) => {
       </div>
 
       <span className="forgot-password text-right">
-        Nouveau utilisateur?{" "}
+        Nouveau utilisateur?
         <Link to={`/register?redirect=${redirect}`}>
           Créez votre compte ici
         </Link>

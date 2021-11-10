@@ -36,7 +36,7 @@ export default function CreateEvent() {
   };
 
   return (
-    <form className="mt-5 mb-5">
+    <form className="form">
       <div className="form-group mb-3">
         <label htmlFor="title">Titre:</label>
         <input
@@ -64,9 +64,15 @@ export default function CreateEvent() {
           formEncType="multipart/form-data"
         />
       </div>
-      <button type="submit" className="btn btn-primary" onClick={creerEvent}>
-        Submit
-      </button>
+      <div>
+        <button
+          type="submit"
+          style={{ backgroundColor: "#e5890a" }}
+          onClick={creerEvent}
+        >
+          Envoyer
+        </button>
+      </div>
     </form>
   );
 }

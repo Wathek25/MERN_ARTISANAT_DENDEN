@@ -46,7 +46,7 @@ export default function Blogs() {
               <div className="card" style={{ width: "22rem" }}>
                 <img
                   className="card-img-top"
-                  src={"http://localhost:5000/" + blog.imageURL}
+                  src={blog.imageURL}
                   alt="thumb"
                   height="200px"
                 />

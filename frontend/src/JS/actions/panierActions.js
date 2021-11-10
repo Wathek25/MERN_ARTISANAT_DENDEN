@@ -6,6 +6,7 @@ import {
   PANIER_SAVE_PAIEMENT,
 } from "../constants/panierConstants";
 
+//adding new products to cart (panier)
 export const ajoutAuPanier =
   (produitId, quantite) => async (dispatch, getState) => {
     const { data } = await axios.get(`/api/produits/${produitId}`);
@@ -28,7 +29,7 @@ export const ajoutAuPanier =
     );
   };
 
-/** Supprimer un produit depuis le panier */
+//deleting product from the cart (panier)
 export const supprimerPanier = (produitId) => (dispatch, getState) => {
   dispatch({ type: PANIER_SUPPRIMER_PRODUIT, payload: produitId });
   localStorage.setItem(

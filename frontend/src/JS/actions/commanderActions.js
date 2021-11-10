@@ -22,6 +22,7 @@ import {
   COMMANDER_DELETE_FAIL,
 } from "../constants/commanderConstants";
 
+//creating order (commande) action
 export const createCommande = (commander) => async (dispatch, getState) => {
   dispatch({ type: COMMANDER_REQUEST, payload: commander });
   try {
@@ -48,6 +49,7 @@ export const createCommande = (commander) => async (dispatch, getState) => {
   }
 };
 
+//order (commande) infos
 export const detailsCommande = (commandeId) => async (dispatch, getState) => {
   dispatch({ type: COMMANDER_VIEW_REQUEST, payload: commandeId });
   const {
@@ -67,6 +69,7 @@ export const detailsCommande = (commandeId) => async (dispatch, getState) => {
   }
 };
 
+//payment
 export const payCommander =
   (commander, paiementResult) => async (dispatch, getState) => {
     dispatch({

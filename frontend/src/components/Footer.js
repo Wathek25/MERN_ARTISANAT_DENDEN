@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-lg-3 py-3">
               <h3>
-                VillageArt<span className="text-success">Denden.</span>
+                VillageArt<span style={{ color: "#e5890a" }}>Denden.</span>
               </h3>
             </div>
             <div className="col-lg-3 py-3 page-footer">
@@ -24,18 +24,27 @@ const Footer = () => {
             <div className="col-lg-3 py-3">
               <h5>Village d'artisanat denden</h5>
               <ul className="footer-menu">
-                <li>
-                  <Link to="/" style={{ textDecoration: "none" }}>
+                <li style={{ textDecoration: "none", color: "#e5890a" }}>
+                  <Link
+                    to="/"
+                    style={{ textDecoration: "none", color: "#e5890a" }}
+                  >
                     Accueil
                   </Link>
                 </li>
                 <li>
-                  <Link to="/events" style={{ textDecoration: "none" }}>
+                  <Link
+                    to="/events"
+                    style={{ textDecoration: "none", color: "#e5890a" }}
+                  >
                     Evenement
                   </Link>
                 </li>
                 <li>
-                  <Link to="/blogs" style={{ textDecoration: "none" }}>
+                  <Link
+                    to="/blogs"
+                    style={{ textDecoration: "none", color: "#e5890a" }}
+                  >
                     Blog
                   </Link>
                 </li>

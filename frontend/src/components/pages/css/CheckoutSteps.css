@@ -6,6 +6,6 @@
   font-weight: bold;
 }
 .checkout-steps > div.active {
-  border-top-color: green;
-  color: green;
+  border-top-color: #e5890a;
+  color: #e5890a;
 }

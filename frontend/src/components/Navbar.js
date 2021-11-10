@@ -8,10 +8,9 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
-import { Link, NavLink, Route } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signout } from "../JS/actions/clientActions";
-import { useHistory } from "react-router-dom";
 import SearchBox from "./SearchBox";
 import { listProduitCategories } from "../JS/actions/produitActions";
 import Loading from "./Loading";
@@ -22,14 +21,6 @@ const NavbarC = () => {
 
   const clientConnecter = useSelector((state) => state.clientConnecter);
   const { clientInfo } = clientConnecter;
-
-  // const panierProduits = localStorage.getItem("panierProduits")
-  //   ? JSON.parse(localStorage.getItem("panierProduits"))
-  //   : null;
-
-  // const clientInfo = localStorage.getItem("clientInfo")
-  //   ? JSON.parse(localStorage.getItem("clientInfo"))
-  //   : null;
 
   const dispatch = useDispatch();
   // const history = useHistory();
@@ -59,7 +50,7 @@ const NavbarC = () => {
           <Navbar.Brand>
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>
               <strong>
-                VillageArt<span className="text-success">Denden</span>
+                VillageArt<span style={{ color: "#e5890a" }}>Denden</span>
               </strong>
             </Link>
           </Navbar.Brand>
@@ -139,13 +130,17 @@ const NavbarC = () => {
 
               <NavDropdown
                 // title="Connecter"
-                title={<i className="fa fa-fw fa-user"></i>}
+                title={
+                  <span>
+                    <i className="fa fa-fw fa-user"></i>
+                    {clientInfo ? clientInfo.prenom : "Connecter"}
+                  </span>
+                }
                 id="basic-nav-dropdown"
                 style={{ color: "white" }}
               >
                 {clientInfo ? (
                   <div>
-                    {clientInfo.prenom}
                     <NavDropdown.Item>
                       <Link
                         to="/profile"
@@ -270,7 +265,7 @@ const NavbarC = () => {
                       to="/createevenement"
                       style={{
                         textDecoration: "none",
-                        color: "white",
+                        color: "rgba(0,0,0,.55)",
                       }}
                     >
                       Ajouter Événements

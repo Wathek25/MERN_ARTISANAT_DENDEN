@@ -1,7 +1,7 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
 
-const CarouselC = () => {
+const CarouselC = (props) => {
   return (
     <div>
       <Carousel>
@@ -12,6 +12,7 @@ const CarouselC = () => {
             alt="First slide"
             height="350px"
           />
+
           <Carousel.Caption></Carousel.Caption>
         </Carousel.Item>
       </Carousel>

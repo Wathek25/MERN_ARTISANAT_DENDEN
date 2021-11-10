@@ -35,7 +35,7 @@ const SearchPage = (props) => {
   };
   return (
     <div>
-      <div className="row">
+      <div className="">
         {loading ? (
           <Loading />
         ) : error ? (
@@ -44,29 +44,8 @@ const SearchPage = (props) => {
           <div>{produits.length} Résultat</div>
         )}
       </div>
-      <div className="row top">
-        {/* <div className="col-1">
-          <h3>Department</h3>
-          {loadingCategories ? (
-            <Loading />
-          ) : errorCategories ? (
-            <span>{errorCategories}</span>
-          ) : (
-            <ul>
-              {categories.map((c) => (
-                <li key={c}>
-                  <Link
-                    className={c === categorie ? "active" : ""}
-                    to={getFilterUrl({ categorie: c })}
-                  >
-                    {c}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div> */}
-        <div className="col-3">
+      <div className="">
+        <div className="">
           {loading ? (
             <Loading />
           ) : error ? (
@@ -74,9 +53,11 @@ const SearchPage = (props) => {
           ) : (
             <>
               {produits.length === 0 && <span>Aucun produit trouvé</span>}
-              <div className="row center">
+              <div className="row">
                 {produits.map((produit) => (
-                  <Produit key={produit._id} produit={produit}></Produit>
+                  <div className="col-3">
+                    <Produit key={produit._id} produit={produit}></Produit>
+                  </div>
                 ))}
               </div>
             </>

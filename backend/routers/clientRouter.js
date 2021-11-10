@@ -16,6 +16,7 @@ const clientRouter = express.Router();
 //   })
 // );
 
+//connect (signin) route
 clientRouter.post(
   "/connecter",
   expressAsyncHandler(async (req, res) => {
@@ -38,6 +39,7 @@ clientRouter.post(
   })
 );
 
+//register route
 clientRouter.post(
   "/register",
   expressAsyncHandler(async (req, res) => {
@@ -60,7 +62,6 @@ clientRouter.post(
   })
 );
 
-//uodating profile page
 clientRouter.get(
   "/:id",
   expressAsyncHandler(async (req, res) => {
@@ -73,7 +74,7 @@ clientRouter.get(
   })
 );
 
-//uodating profiles by clients
+//updating profiles by clients route
 clientRouter.put(
   "/profile",
   isAuth,
@@ -108,7 +109,7 @@ clientRouter.put(
   })
 );
 
-//getting all list of clients for admin only
+//to get all list of clients for admin
 clientRouter.get(
   "/",
   isAuth,
@@ -119,7 +120,7 @@ clientRouter.get(
   })
 );
 
-//deleting clients
+//deleting clients route for admin
 clientRouter.delete(
   "/:id",
   isAuth,

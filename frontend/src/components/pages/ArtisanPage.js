@@ -23,14 +23,14 @@ const ArtisanPage = (props) => {
     dispatch(listProduits({ artisan: artisanId }));
   }, [dispatch, artisanId]);
   return (
-    <div className="produit top">
-      <div className="col-3">
+    <div className="">
+      <div className="col-3" style={{ marginLeft: "35%" }}>
         {loading ? (
           <Loading />
         ) : error ? (
           <span>{error}</span>
         ) : (
-          <ul className="card card-body">
+          <ul className="">
             <li>
               <div className="produit start">
                 <div className="p-1">
@@ -41,14 +41,15 @@ const ArtisanPage = (props) => {
                 </div>
               </div>
             </li>
+
             <li>
-              <a href={`mailto:${client.email}`}>Contact artisan</a>
+              <strong>Description :</strong>
+              {client.artisan.description}
             </li>
-            <li>{client.artisan.description}</li>
           </ul>
         )}
       </div>
-      <div className="col-5">
+      <div className="">
         {loadingProduits ? (
           <Loading />
         ) : errorProduits ? (
@@ -56,9 +57,11 @@ const ArtisanPage = (props) => {
         ) : (
           <>
             {produits.length === 0 && <span>Aucun produit trouvé</span>}
-            <div className="produit center">
+            <div className="row">
               {produits.map((produit) => (
-                <Produit key={produit._id} produit={produit}></Produit>
+                <div className="col-3">
+                  <Produit key={produit._id} produit={produit}></Produit>
+                </div>
               ))}
             </div>
           </>

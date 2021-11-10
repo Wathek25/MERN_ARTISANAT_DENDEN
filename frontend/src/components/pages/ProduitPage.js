@@ -103,23 +103,6 @@ const ProduitPage = (props) => {
             <div className="">
               <div className="">
                 <ul>
-                  {/* <li>
-                    Artisan
-                    <h2>
-                      <Link to={`/artisan/${produit.artisan._id}`}>
-                        {produit.artisan.nom}
-                      </Link>
-                    </h2>
-                    <h2>
-                      <Link to={`/artisan/${produit.artisan._id}`}>
-                        {produit.artisan.prenom}
-                      </Link>
-                    </h2>
-                    <Rating
-                      rating={produit.rating}
-                      numReviews={produit.numReviews}
-                    ></Rating>
-                  </li> */}
                   <li>
                     <div className="">
                       <div>

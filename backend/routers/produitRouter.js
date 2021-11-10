@@ -56,7 +56,8 @@ produitRouter.get(
     }
   })
 );
-//route for adding new produits
+
+//route for adding new products
 produitRouter.post(
   "/",
   isAuth,
@@ -78,7 +79,7 @@ produitRouter.post(
   })
 );
 
-//updating produit
+//updating product
 produitRouter.put(
   "/:id",
   isAuth,
@@ -101,7 +102,7 @@ produitRouter.put(
   })
 );
 
-//delete produit
+//delete product route
 produitRouter.delete(
   "/:id",
   isAuth,
@@ -117,6 +118,7 @@ produitRouter.delete(
   })
 );
 
+//reviews route
 produitRouter.post(
   "/:id/reviews",
   isAuth,

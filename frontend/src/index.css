@@ -183,15 +183,16 @@ img {
   border-radius: 0.5rem;
 }
 img.small {
-  max-width: 8rem;
-  width: 100%;
+  width: 8rem;
+  height: 5rem;
 }
 img.medium {
-  max-width: 20rem;
-  width: 100%;
+  width: 20rem;
+  height: 15rem;
 }
 img.large {
-  width: 100%;
+  width: 20rem;
+  height: 16rem;
 }
 
 /* Card */
@@ -425,4 +426,25 @@ img.large {
   padding-right: 10%;
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+.panier {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  flex-wrap: wrap;
+}
+
+.artisan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }

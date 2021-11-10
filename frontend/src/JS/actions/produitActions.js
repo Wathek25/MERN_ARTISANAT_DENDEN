@@ -69,7 +69,7 @@ export const detailsProduit = (produitId) => async (dispatch) => {
   }
 };
 
-//creating new produit
+//creating new product
 export const createProduit = () => async (dispatch, getState) => {
   dispatch({ type: PRODUIT_CREATE_REQUEST });
   const {

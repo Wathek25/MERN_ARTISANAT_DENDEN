@@ -17,6 +17,7 @@ const upload = multer({ storage }).single("image");
 
 const blogRouter = express.Router();
 
+//getting all blogs
 blogRouter.get("/", async (req, res) => {
   try {
     const blogs = await Blog.find({});
@@ -28,6 +29,7 @@ blogRouter.get("/", async (req, res) => {
   }
 });
 
+//getting blogs with id
 blogRouter.get("/:id", async (req, res) => {
   try {
     const blog = await Blog.find({ _id: req.params.id });
@@ -37,12 +39,13 @@ blogRouter.get("/:id", async (req, res) => {
   }
 });
 
+//uploading bllogs
 blogRouter.post("/", [upload], async (req, res) => {
   try {
     const newBlog = {
       titre: req.body.titre,
       contenu: req.body.contenu,
-      imageURL: req.file ? req.file.path : null,
+      imageURL: req.body.image,
     };
     const blog = await Blog.create(newBlog);
     res.status(201).send({ contenu: true, rslt: blog });
@@ -51,6 +54,7 @@ blogRouter.post("/", [upload], async (req, res) => {
   }
 });
 
+//updating blogs
 blogRouter.patch("/:id", [upload], async (req, res) => {
   try {
     const newBlog = {
@@ -65,6 +69,7 @@ blogRouter.patch("/:id", [upload], async (req, res) => {
   }
 });
 
+//deleting blogs
 blogRouter.delete("/:id", async (req, res) => {
   try {
     const deletedBlog = await Blog.deleteOne({ _id: req.params.id });

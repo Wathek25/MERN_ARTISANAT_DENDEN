@@ -23,6 +23,7 @@ import {
   CLIENT_UPDATE_FAIL,
 } from "../../JS/constants/clientConstants";
 
+//register action
 export const register = (nom, prenom, email, password) => async (dispatch) => {
   dispatch({ type: CLIENT_REGISTER_REQUEST, payload: { email, password } });
   try {
@@ -45,7 +46,7 @@ export const register = (nom, prenom, email, password) => async (dispatch) => {
     });
   }
 };
-
+//connect (signin) action
 export const connecter = (email, password) => async (dispatch) => {
   dispatch({ type: CLIENT_CONNECT_REQUEST, payload: { email, password } });
   try {
@@ -73,9 +74,7 @@ export const detailsClient = (clientId) => async (dispatch, getState) => {
     clientConnecter: { clientInfo },
   } = getState();
   try {
-    const { data } = await axios.get(`/api/clients/${clientId}`, {
-      // headers: { Authorization: `Bearer ${clientInfo.token}` },
-    });
+    const { data } = await axios.get(`/api/clients/${clientId}`, {});
     dispatch({ type: CLIENT_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     const message =
@@ -170,6 +169,7 @@ export const deleteClient = (clientId) => async (dispatch, getState) => {
   }
 };
 
+//signout action
 export const signout = () => (dispatch) => {
   localStorage.removeItem("clientInfo");
   localStorage.removeItem("panierProduits");

@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
+import Loading from "./Loading";
 
 export default function CreateBlog() {
   const { id } = useParams();
+  const [image, setImage] = useState("");
+  // const [loadingUpload, setLoadingUpload] = useState(false);
+  // const [errorUpload, setErrorUpload] = useState("");
 
   const history = useHistory();
   const [blog, setBlog] = useState(null);
@@ -28,11 +32,30 @@ export default function CreateBlog() {
     setBlog(e.target.value);
   };
 
+  // const uploadFileHandler = async (e) => {
+  //   const file = e.target.files[0];
+  //   const bodyFormData = new FormData();
+  //   bodyFormData.append("image", file);
+  //   setLoadingUpload(true);
+  //   try {
+  //     const { data } = await axios.post("/api/uploads", bodyFormData, {
+  //       headers: {
+  //         "Content-Type": "multipart/form-data",
+  //       },
+  //     });
+  //     setImage(data);
+  //     setLoadingUpload(false);
+  //   } catch (error) {
+  //     setErrorUpload(error.message);
+  //     setLoadingUpload(false);
+  //   }
+  // };
   const creerModifierBlog = async (e) => {
     e.preventDefault();
+
     const titre = document.getElementById("title").value;
     const contenu = document.getElementById("contenu").value;
-    const image = document.getElementById("image").files[0];
+    const image = document.getElementById("image").value;
 
     const formData = new FormData();
     formData.append("titre", titre);
@@ -55,7 +78,7 @@ export default function CreateBlog() {
               Authorization: "Bearer " + token,
             },
           });
-      console.log(data);
+
       if (data.contenu) {
         history.push("/blog/" + data.rslt._id);
       }
@@ -65,7 +88,7 @@ export default function CreateBlog() {
   };
 
   return (
-    <form className="mt-5 mb-5">
+    <form className="form">
       <div className="form-group mb-3">
         <label htmlFor="title">Titre:</label>
         <input
@@ -89,21 +112,36 @@ export default function CreateBlog() {
         ></textarea>
       </div>
       <div className="form-grou mt-3">
-        <label htmlFor="image">Télecharger un image</label>
+        <label htmlFor="image">URL de l'image :</label>
         <input
-          type="file"
-          className="form-controlt"
           id="image"
-          formEncType="multipart/form-data"
+          type="text"
+          placeholder="Image du produit"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
         />
       </div>
-      <button
-        type="submit"
-        className="btn btn-primary"
-        onClick={creerModifierBlog}
-      >
-        Submit
-      </button>
+      {/* <div>
+        <label htmlFor="imageFile">Fichier image</label>
+        <input
+          type="file"
+          id="imageFile"
+          label="Choose Image"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+        ></input>
+        {loadingUpload && <Loading />}
+        {errorUpload && <span>{errorUpload}</span>}
+      </div> */}
+      <div>
+        <button
+          type="submit"
+          style={{ backgroundColor: "#e5890a" }}
+          onClick={creerModifierBlog}
+        >
+          Envoyer
+        </button>
+      </div>
     </form>
   );
 }

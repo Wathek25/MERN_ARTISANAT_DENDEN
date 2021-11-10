@@ -65,6 +65,7 @@ const ProfilePage = () => {
           artisanDescription,
         })
       );
+      if (successUpdate) alert("Mise à jour du profil réussie");
     }
   };
   return (
@@ -89,10 +90,6 @@ const ProfilePage = () => {
                   {errorUpdate}
                 </span>
               )}
-              {successUpdate && (
-                <span variant="success">Mise à jour du profil réussie</span>
-              )}
-
               <div>
                 <label htmlFor="nom">Nom</label>
                 <input

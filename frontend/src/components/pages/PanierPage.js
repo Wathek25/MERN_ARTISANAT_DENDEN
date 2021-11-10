@@ -27,13 +27,14 @@ const PanierPage = (props) => {
   };
 
   return (
-    <div className="produit top">
-      <div className="col-3">
+    <div className="panier">
+      <div className="col-6">
         <h2>Votre Panier</h2>
         {panierProduits.length === 0 ? (
           <h3>
             Panier est vide !
             <Link
+              className="border"
               to="/"
               style={{ textDecoration: "underline", color: "#e5890a" }}
             >
@@ -44,7 +45,7 @@ const PanierPage = (props) => {
           <ul>
             {panierProduits.map((produit) => (
               <li key={produit.produit}>
-                <div className="produit">
+                <div className="panier">
                   <div>
                     <img
                       src={produit.image}
@@ -52,10 +53,18 @@ const PanierPage = (props) => {
                       className="small"
                     ></img>
                   </div>
-                  <div className="min-30">
-                    <Link to={`/produit/${produit.produit}`}>
-                      {produit.nom}
-                    </Link>
+                  <div className="">
+                    <strong>
+                      <Link
+                        to={`/produit/${produit.produit}`}
+                        style={{
+                          textDecoration: "none",
+                          color: "rgb(229, 137, 10)",
+                        }}
+                      >
+                        {produit.nom}
+                      </Link>
+                    </strong>
                   </div>
                   <div>
                     <select
