@@ -135,6 +135,15 @@ a.brand {
 .col-3 {
   flex: 32 1 75rem;
 }
+
+.mycol3 {
+  flex: 2 30px;
+}
+.mycol {
+  flex: 1 1 2rem;
+  /* width: 100%;
+  margin: auto; */
+}
 .min-30 {
   min-width: 30rem;
 }

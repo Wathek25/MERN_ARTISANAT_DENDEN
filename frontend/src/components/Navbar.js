@@ -45,10 +45,7 @@ const NavbarC = () => {
 
   return (
     <div>
-      <Navbar
-        expand="lg"
-        style={{ backgroundColor: "#203040", fontSize: "68%" }}
-      >
+      <Navbar expand="lg" style={{ backgroundColor: "#203040" }}>
         <Container>
           <Navbar.Brand>
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>

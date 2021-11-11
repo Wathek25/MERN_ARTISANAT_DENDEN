@@ -69,14 +69,14 @@ const ProduitPage = (props) => {
           <h1>Vos Produit</h1>
 
           <div className="produit top">
-            <div className="col-3">
+            <div className="mycol3">
               <img
                 className="large"
                 src={produit.image}
                 alt={produit.nom}
               ></img>
             </div>
-            <div className="col-5">
+            <div className="mycol3">
               <ul>
                 <li>
                   <h3>{produit.nom}</h3>
@@ -104,12 +104,10 @@ const ProduitPage = (props) => {
               <div className="">
                 <ul>
                   <li>
-                    <div className="">
-                      <div>
-                        <strong>Prix</strong>
-                      </div>
-                      <div className="price">{produit.prix} Dt</div>
+                    <div className="mycol">
+                      <strong>Prix</strong>
                     </div>
+                    <div className="price">{produit.prix} Dt</div>
                   </li>
                   <li>
                     <div className="">
