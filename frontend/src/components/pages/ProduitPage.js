@@ -206,6 +206,7 @@ const ProduitPage = (props) => {
                   <p>{review.comment}</p>
                   {nom && nom === review.nom && (
                     <button
+                      className="btn btn-warning"
                       onClick={() => deleteHandler(produit._id, review._id)}
                     >
                       Supprimer
