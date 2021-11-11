@@ -53,9 +53,9 @@ const SearchPage = (props) => {
           ) : (
             <>
               {produits.length === 0 && <span>Aucun produit trouvé</span>}
-              <div className="produit">
+              <div className="produit start">
                 {produits.map((produit) => (
-                  <div className="mycol3">
+                  <div>
                     <Produit key={produit._id} produit={produit}></Produit>
                   </div>
                 ))}
