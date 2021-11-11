@@ -24,6 +24,10 @@ import {
   PRODUIT_REVIEW_CREATE_SUCCESS,
   PRODUIT_REVIEW_CREATE_FAIL,
   PRODUIT_REVIEW_CREATE_RESET,
+  PRODUIT_REVIEW_DELETE_REQUEST,
+  PRODUIT_REVIEW_DELETE_SUCCESS,
+  PRODUIT_REVIEW_DELETE_FAIL,
+  PRODUIT_REVIEW_DELETE_RESET,
 } from "../constants/produitConstants";
 
 export const produitListReducer = (
@@ -51,6 +55,21 @@ export const produitReviewCreateReducer = (state = {}, action) => {
     case PRODUIT_REVIEW_CREATE_FAIL:
       return { loading: false, error: action.payload };
     case PRODUIT_REVIEW_CREATE_RESET:
+      return {};
+    default:
+      return state;
+  }
+};
+
+export const produitReviewDeleteReducer = (state = {}, action) => {
+  switch (action.type) {
+    case PRODUIT_REVIEW_DELETE_REQUEST:
+      return { loading: true };
+    case PRODUIT_REVIEW_DELETE_SUCCESS:
+      return { loading: false, success: true, review: action.payload };
+    case PRODUIT_REVIEW_DELETE_FAIL:
+      return { loading: false, error: action.payload };
+    case PRODUIT_REVIEW_DELETE_RESET:
       return {};
     default:
       return state;

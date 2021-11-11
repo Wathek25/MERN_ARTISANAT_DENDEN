@@ -1,7 +1,8 @@
 import express from "express";
 import expressAsyncHandler from "express-async-handler";
 import data from "../data.js";
-import Produit from "../models/produitModel.js";
+import mongoose from "mongoose";
+import { Produit, Review } from "../models/produitModel.js";
 import { isAdmin, isArtisan, isArtisanOrAdmin, isAuth } from "../utils.js";
 
 const produitRouter = express.Router();
@@ -148,6 +149,21 @@ produitRouter.post(
       });
     } else {
       res.status(404).send({ message: "Produit inconnue" });
+    }
+  })
+);
+
+produitRouter.post(
+  "/:id/delreviews/",
+  expressAsyncHandler(async (req, res) => {
+    const produitId = req.params.id;
+    const produit = await Produit.findById(produitId);
+    if (produit) {
+      produit.reviews = produit.reviews.filter(
+        (rev) => String(rev._id) !== req.body.id
+      );
+      produit.numReviews = produit.reviews.length;
+      await produit.save();
     }
   })
 );

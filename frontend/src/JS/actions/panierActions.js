@@ -24,8 +24,8 @@ export const ajoutAuPanier =
     });
 
     localStorage.setItem(
-      "panierPoduits",
-      JSON.stringify(getState().panier.panierPoduits)
+      "panierProduits",
+      JSON.stringify(getState().panier.panierProduits)
     );
   };
 
@@ -33,8 +33,8 @@ export const ajoutAuPanier =
 export const supprimerPanier = (produitId) => (dispatch, getState) => {
   dispatch({ type: PANIER_SUPPRIMER_PRODUIT, payload: produitId });
   localStorage.setItem(
-    "panierPoduits",
-    JSON.stringify(getState().panier.panierPoduits)
+    "panierProduits",
+    JSON.stringify(getState().panier.panierProduits)
   );
 };
 

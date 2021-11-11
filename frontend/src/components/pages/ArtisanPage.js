@@ -23,14 +23,14 @@ const ArtisanPage = (props) => {
     dispatch(listProduits({ artisan: artisanId }));
   }, [dispatch, artisanId]);
   return (
-    <div className="">
+    <div>
       <div className="col-3" style={{ marginLeft: "35%" }}>
         {loading ? (
           <Loading />
         ) : error ? (
           <span>{error}</span>
         ) : (
-          <ul className="">
+          <ul>
             <li>
               <div className="produit start">
                 <div className="p-1">
@@ -49,7 +49,7 @@ const ArtisanPage = (props) => {
           </ul>
         )}
       </div>
-      <div className="">
+      <div>
         {loadingProduits ? (
           <Loading />
         ) : errorProduits ? (

@@ -35,7 +35,7 @@ const SearchPage = (props) => {
   };
   return (
     <div>
-      <div className="">
+      <div>
         {loading ? (
           <Loading />
         ) : error ? (
@@ -44,8 +44,8 @@ const SearchPage = (props) => {
           <div>{produits.length} Résultat</div>
         )}
       </div>
-      <div className="">
-        <div className="">
+      <div>
+        <div>
           {loading ? (
             <Loading />
           ) : error ? (

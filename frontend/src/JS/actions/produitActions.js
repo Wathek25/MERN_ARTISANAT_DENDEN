@@ -21,6 +21,9 @@ import {
   PRODUIT_REVIEW_CREATE_REQUEST,
   PRODUIT_REVIEW_CREATE_SUCCESS,
   PRODUIT_REVIEW_CREATE_FAIL,
+  PRODUIT_REVIEW_DELETE_REQUEST,
+  PRODUIT_REVIEW_DELETE_SUCCESS,
+  PRODUIT_REVIEW_DELETE_FAIL,
 } from "../constants/produitConstants";
 
 export const listProduits =
@@ -136,7 +139,7 @@ export const deleteProduit = (produitId) => async (dispatch, getState) => {
   }
 };
 
-//review
+//cereate review
 export const createReview =
   (produitId, review) => async (dispatch, getState) => {
     dispatch({ type: PRODUIT_REVIEW_CREATE_REQUEST });
@@ -161,5 +164,33 @@ export const createReview =
           ? error.response.data.message
           : error.message;
       dispatch({ type: PRODUIT_REVIEW_CREATE_FAIL, payload: message });
+    }
+  };
+
+//delete review
+export const deleteReview =
+  (produitId, reviewId) => async (dispatch, getState) => {
+    dispatch({ type: PRODUIT_REVIEW_DELETE_REQUEST });
+    const {
+      clientConnecter: { clientInfo },
+    } = getState();
+    try {
+      const { data } = await axios.post(
+        `/api/produits/${produitId}/delreviews`,
+        { id: reviewId },
+        {
+          headers: { Authorization: `Bearer ${clientInfo.token}` },
+        }
+      );
+      dispatch({
+        type: PRODUIT_REVIEW_DELETE_SUCCESS,
+        payload: data.review,
+      });
+    } catch (error) {
+      const message =
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message;
+      dispatch({ type: PRODUIT_REVIEW_DELETE_FAIL, payload: message });
     }
   };

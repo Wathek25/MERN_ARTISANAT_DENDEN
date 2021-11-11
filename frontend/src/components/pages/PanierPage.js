@@ -53,7 +53,7 @@ const PanierPage = (props) => {
                       className="small"
                     ></img>
                   </div>
-                  <div className="">
+                  <div>
                     <strong>
                       <Link
                         to={`/produit/${produit.produit}`}
@@ -97,7 +97,7 @@ const PanierPage = (props) => {
           </ul>
         )}
       </div>
-      <div className="col-3">
+      <div className="produit">
         <div className="card card-body">
           <ul>
             <li>

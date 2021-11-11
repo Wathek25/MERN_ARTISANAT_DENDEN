@@ -4,8 +4,15 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../Loading";
 import Error from "../Error";
-import { createReview, detailsProduit } from "../../JS/actions/produitActions";
-import { PRODUIT_REVIEW_CREATE_RESET } from "../../JS/constants/produitConstants";
+import {
+  createReview,
+  detailsProduit,
+  deleteReview,
+} from "../../JS/actions/produitActions";
+import {
+  PRODUIT_REVIEW_CREATE_RESET,
+  PRODUIT_REVIEW_DELETE_RESET,
+} from "../../JS/constants/produitConstants";
 
 const ProduitPage = (props) => {
   const dispatch = useDispatch();
@@ -24,8 +31,20 @@ const ProduitPage = (props) => {
     success: successReviewCreate,
   } = produitReviewCreate;
 
+  const produitReviewDelete = useSelector((state) => state.produitReviewDelete);
+  const {
+    loading: loadingReviewDelete,
+    error: errorReviewDelete,
+    success: successReviewDelete,
+  } = produitReviewDelete;
+
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
+
+  let nom = null;
+  if (localStorage.getItem("clientInfo")) {
+    nom = JSON.parse(localStorage.getItem("clientInfo")).nom;
+  }
 
   useEffect(() => {
     if (successReviewCreate) {
@@ -36,6 +55,16 @@ const ProduitPage = (props) => {
     }
     dispatch(detailsProduit(produitId));
   }, [dispatch, produitId, successReviewCreate]);
+
+  useEffect(() => {
+    if (successReviewDelete) {
+      window.alert("Supprimer avec succès");
+      setRating("");
+      setComment("");
+      dispatch({ type: PRODUIT_REVIEW_DELETE_RESET });
+    }
+    dispatch(detailsProduit(produitId));
+  }, [dispatch, produitId, successReviewDelete]);
 
   const ajoutAuPanier = () => {
     props.history.push(`/panier/${produitId}?quantite=${quantite}`);
@@ -49,6 +78,13 @@ const ProduitPage = (props) => {
       );
     } else {
       alert("Veuillez entrer un commentaire et une note");
+    }
+  };
+
+  const deleteHandler = (prodId, reviewId) => {
+    if (window.confirm("Supprimer avis?")) {
+      dispatch(deleteReview(prodId, reviewId));
+      window.location.reload();
     }
   };
 
@@ -100,8 +136,8 @@ const ProduitPage = (props) => {
                 </li>
               </ul>
             </div>
-            <div className="">
-              <div className="">
+            <div>
+              <div>
                 <ul>
                   <li>
                     <div className="mycol">
@@ -110,7 +146,7 @@ const ProduitPage = (props) => {
                     <div className="price">{produit.prix} Dt</div>
                   </li>
                   <li>
-                    <div className="">
+                    <div>
                       <div>
                         <strong>Status</strong>
                       </div>
@@ -168,6 +204,13 @@ const ProduitPage = (props) => {
                   <Rating rating={review.rating} caption=" "></Rating>
                   <p>{review.createdAt.substring(0, 10)}</p>
                   <p>{review.comment}</p>
+                  {nom && nom === review.nom && (
+                    <button
+                      onClick={() => deleteHandler(produit._id, review._id)}
+                    >
+                      Supprimer
+                    </button>
+                  )}
                 </li>
               ))}
               <li>

@@ -39,13 +39,12 @@ const ConnectPage = (props) => {
         <h6 style={{ color: "red" }}>Email ou mot de passe incorrect</h6>
       )}
 
-      <div className="">
+      <div>
         <label>
           <strong>Votre Email</strong>
         </label>
         <input
           type="email"
-          className=""
           placeholder="Entrez votre email"
           id="email"
           required
@@ -53,13 +52,12 @@ const ConnectPage = (props) => {
         />
       </div>
 
-      <div className="">
+      <div>
         <label>
           <strong>Votre mot de passe</strong>
         </label>
         <input
           type="password"
-          className=""
           placeholder="Entrez votre mot de passe"
           id="password"
           required
