@@ -45,13 +45,17 @@ const NavbarC = () => {
 
   return (
     <div>
-      <Navbar expand="lg" style={{ backgroundColor: "#203040" }}>
+      <Navbar
+        expand="lg"
+        style={{ backgroundColor: "#203040", fontSize: "85%" }}
+      >
         <Container>
           <Navbar.Brand>
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-              <strong>
-                VillageArt<span style={{ color: "#e5890a" }}>Denden</span>
-              </strong>
+              VillageArt
+              <span style={{ color: "#e5890a", fontWeight: "bold" }}>
+                Denden
+              </span>
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
