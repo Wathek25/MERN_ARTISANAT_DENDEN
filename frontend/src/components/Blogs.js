@@ -54,9 +54,6 @@ export default function Blogs() {
                 />
                 <div className="card-body">
                   <h5 className="card-title">{blog.titre}</h5>
-                  <p className="card-text">
-                    {blog.contenu.slice(0, 50) + "..."}
-                  </p>
                   <NavLink to={`/blog/${blog._id}`}>Détail du blog</NavLink>
                   <br />
                   {isAdmin && (
