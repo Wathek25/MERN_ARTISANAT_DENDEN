@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Blogs() {
-  const history = useHistory();
   const { isAdmin } = localStorage.getItem("clientInfo")
     ? JSON.parse(localStorage.getItem("clientInfo"))
     : { isAdmin: false };
@@ -46,21 +45,16 @@ export default function Blogs() {
               <div className="card" style={{ width: "22rem" }}>
                 <img
                   className="card-img-top"
-                  src={blog.imageURL}
+                  src={"http://localhost:5000/" + blog.imageURL}
                   alt="thumb"
                   height="200px"
                 />
                 <div className="card-body">
                   <h5 className="card-title">{blog.titre}</h5>
-                  {/* <p className="card-text">
+                  <p className="card-text">
                     {blog.contenu.slice(0, 50) + "..."}
-                  </p> */}
-                  <NavLink
-                    to={`/blog/${blog._id}`}
-                    style={{ textDecoration: "none" }}
-                  >
-                    Détail du blog
-                  </NavLink>
+                  </p>
+                  <NavLink to={`/blog/${blog._id}`}>Détail du blog</NavLink>
                   <br />
                   {isAdmin && (
                     <button
@@ -68,14 +62,6 @@ export default function Blogs() {
                       onClick={() => deletBlog(blog._id)}
                     >
                       Supprimer
-                    </button>
-                  )}
-                  {isAdmin && (
-                    <button
-                      class="btn btn-warning"
-                      onClick={() => history.push("/update-blog/" + blog._id)}
-                    >
-                      Modifier
                     </button>
                   )}
                 </div>

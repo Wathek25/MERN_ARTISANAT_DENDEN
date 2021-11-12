@@ -45,7 +45,7 @@ blogRouter.post("/", [upload], async (req, res) => {
     const newBlog = {
       titre: req.body.titre,
       contenu: req.body.contenu,
-      imageURL: req.body.image,
+      imageURL: req.file ? req.file.path : null,
     };
     const blog = await Blog.create(newBlog);
     res.status(201).send({ contenu: true, rslt: blog });

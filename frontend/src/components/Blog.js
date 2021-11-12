@@ -24,7 +24,12 @@ export default function Blog() {
       <div className="container" style={{ width: "75%", margin: "auto" }}>
         {blog ? (
           <div className="container">
-            <img src={blog.imageURL} alt="thum" width="100%" height="550px" />
+            <img
+              src={"http://localhost:5000/" + blog.imageURL}
+              alt="thum"
+              width="100%"
+              height="550px"
+            />
             <div className="mt-4">
               <h1>{blog.titre}</h1>
               <p>{parser(blog.contenu)}</p>
