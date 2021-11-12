@@ -46,7 +46,9 @@ export default function Events() {
               <div className="card" style={{ width: "22rem" }}>
                 <img
                   className="card-img-top"
-                  src={"http://localhost:5000/" + event.imageURL}
+                  src={
+                    "https://villageartdenden.herokuapp.com/" + event.imageURL
+                  }
                   alt="thumb"
                   height="200px"
                 />

@@ -25,7 +25,7 @@ export default function Blog() {
         {blog ? (
           <div className="container">
             <img
-              src={"http://localhost:5000/" + blog.imageURL}
+              src={"https://villageartdenden.herokuapp.com/" + blog.imageURL}
               alt="thum"
               width="100%"
               height="550px"

@@ -25,7 +25,7 @@ export default function Event() {
         {event ? (
           <div className="container">
             <img
-              src={"http://localhost:5000/" + event.imageURL}
+              src={"https://villageartdenden.herokuapp.com/" + event.imageURL}
               alt="thum"
               width="100%"
               height="550px"
