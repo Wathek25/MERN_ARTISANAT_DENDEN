@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
+import Loading from "./Loading";
 
 export default function CreateBlog() {
   const { id } = useParams();
+  const [image, setImage] = useState("");
 
   const history = useHistory();
   const [blog, setBlog] = useState(null);
+  const { isAdmin } = JSON.parse(localStorage.getItem("clientInfo"));
+  if (!isAdmin) {
+    history.push("/");
+  }
 
   useEffect(() => {
     id &&
@@ -26,9 +32,10 @@ export default function CreateBlog() {
 
   const creerModifierBlog = async (e) => {
     e.preventDefault();
+
     const titre = document.getElementById("title").value;
     const contenu = document.getElementById("contenu").value;
-    const image = document.getElementById("image").files[0];
+    const image = document.getElementById("image").value;
 
     const formData = new FormData();
     formData.append("titre", titre);
@@ -51,7 +58,7 @@ export default function CreateBlog() {
               Authorization: "Bearer " + token,
             },
           });
-      console.log(data);
+
       if (data.contenu) {
         history.push("/blog/" + data.rslt._id);
       }
@@ -85,22 +92,23 @@ export default function CreateBlog() {
         ></textarea>
       </div>
       <div className="form-grou mt-3">
-        <label htmlFor="image">Télecharger un image</label>
+        <label htmlFor="image">URL de l'image :</label>
         <input
-          type="file"
-          className="form-controlt"
           id="image"
-          formEncType="multipart/form-data"
+          type="text"
+          placeholder="Lien de l'image"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
         />
       </div>
+
       <div>
         <button
-          style={{ backgroundColor: "rgb(229, 137, 10)" }}
           type="submit"
-          className="btn"
+          style={{ backgroundColor: "#e5890a" }}
           onClick={creerModifierBlog}
         >
-          Submit
+          Envoyer
         </button>
       </div>
     </form>

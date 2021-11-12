@@ -46,15 +46,21 @@ export default function Blogs() {
               <div className="card" style={{ width: "22rem" }}>
                 <img
                   className="card-img-top"
-                  src={
-                    "https://villageartdenden.herokuapp.com/" + blog.imageURL
-                  }
+                  src={blog.imageURL}
                   alt="thumb"
                   height="200px"
                 />
                 <div className="card-body">
                   <h5 className="card-title">{blog.titre}</h5>
-                  <NavLink to={`/blog/${blog._id}`}>Détail du blog</NavLink>
+                  {/* <p className="card-text">
+                    {blog.contenu.slice(0, 50) + "..."}
+                  </p> */}
+                  <NavLink
+                    to={`/blog/${blog._id}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    Détail du blog
+                  </NavLink>
                   <br />
                   {isAdmin && (
                     <button
