@@ -42,26 +42,30 @@ export default function Blogs() {
       <div className="row">
         {typeof blogs === "object" && blogs.length > 0 ? (
           blogs.map((blog) => (
-            <div className="col-md-4">
+            <div className="col-md-4" key={blog.id}>
               <div className="card" style={{ width: "22rem" }}>
                 <img
                   className="card-img-top"
-                  src={
-                    "https://villageartdenden.herokuapp.com/" + blog.imageURL
-                  }
+                  src={blog.imageURL}
                   alt="thumb"
                   height="200px"
                 />
+
                 <div className="card-body">
                   <h5 className="card-title">{blog.titre}</h5>
-                  <p className="card-text">
+                  {/* <p className="card-text">
                     {blog.contenu.slice(0, 50) + "..."}
-                  </p>
-                  <NavLink to={`/blog/${blog._id}`}>Détail du blog</NavLink>
+                  </p> */}
+                  <NavLink
+                    to={`/blog/${blog._id}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    Détail du blog
+                  </NavLink>
                   <br />
                   {isAdmin && (
                     <button
-                      class="btn btn-danger"
+                      className="btn btn-danger"
                       onClick={() => deletBlog(blog._id)}
                     >
                       Supprimer
@@ -69,7 +73,7 @@ export default function Blogs() {
                   )}
                   {isAdmin && (
                     <button
-                      class="btn btn-warning"
+                      className="btn btn-warning"
                       onClick={() => history.push("/update-blog/" + blog._id)}
                     >
                       Modifier
