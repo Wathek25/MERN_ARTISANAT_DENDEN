@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter } from "react-router-dom";
 import store from "./JS/store/store";
 import { Provider } from "react-redux";
+// import "pure-react-carousel/dist/react-carousel.es.css";
 
 ReactDOM.render(
   <BrowserRouter>

@@ -1,6 +1,7 @@
 // import "./App.css";
 
 import "./index.css";
+
 import { Switch, Route } from "react-router-dom";
 import ProduitPage from "./components/pages/ProduitPage";
 import Acceuil from "./components/pages/Acceuil";

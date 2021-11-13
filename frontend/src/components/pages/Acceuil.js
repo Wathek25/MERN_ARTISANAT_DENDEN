@@ -1,12 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Produit from "../Produit";
 import axios from "axios";
-
 import { useDispatch, useSelector } from "react-redux";
 import { listProduits } from "../../JS/actions/produitActions";
 import Loading from "../Loading";
 import Error from "../Error";
 import { useHistory, NavLink } from "react-router-dom";
+import "pure-react-carousel/dist/react-carousel.es.css";
+
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  ButtonBack,
+  ButtonNext,
+  Image,
+} from "pure-react-carousel";
 
 const Acceuil = () => {
   const history = useHistory();
@@ -34,18 +43,48 @@ const Acceuil = () => {
           Derniers
           <span style={{ color: "rgb(229, 137, 10)" }}> produits</span>
         </h1>
+
         {loading ? (
           <Loading />
         ) : error ? (
           <Error />
         ) : (
-          <div className="produit center">
-            {produits
-              .reverse()
-              .slice(0, 4)
-              .map((produit) => (
-                <Produit key={produit._id} produit={produit} />
-              ))}
+          <div>
+            <CarouselProvider
+              naturalSlideWidth={100}
+              naturalSlideHeight={125}
+              currentSlide={0}
+              totalSlides={8}
+              visibleSlides={4}
+            >
+              <Slider>
+                {produits
+                  .reverse()
+                  .slice(0, 8)
+                  .map((produit) => (
+                    <Slide>
+                      <Produit key={produit._id} produit={produit} />
+                    </Slide>
+                  ))}
+              </Slider>
+              <div>
+                <ButtonBack className="back">
+                  <i
+                    class="fa fa-chevron-left"
+                    style={{ fontSize: "40px", color: "#e5890a" }}
+                  ></i>
+                </ButtonBack>
+                <ButtonNext class="next">
+                  <i
+                    class="fa fa-chevron-right"
+                    style={{
+                      fontSize: "36px",
+                      color: "black",
+                    }}
+                  ></i>
+                </ButtonNext>
+              </div>
+            </CarouselProvider>
           </div>
         )}
       </div>
