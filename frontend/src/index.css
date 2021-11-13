@@ -213,6 +213,13 @@ img.large {
   margin-left: 42px;
   width: 253px;
 }
+
+.card2 {
+  border: 0.1rem #c0c0c0 solid;
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+  margin: 1rem;
+}
 .card-body {
   padding: 1rem;
 }

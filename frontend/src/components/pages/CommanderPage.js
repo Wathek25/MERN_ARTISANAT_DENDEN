@@ -43,10 +43,10 @@ const CommanderPage = (props) => {
     <div>
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
       <div className="produit top">
-        <div className="col-3">
+        <div className="mycol3">
           <ul>
             <li>
-              <div className="card card-body">
+              <div className="card2 card-body">
                 <h2>Shipping</h2>
                 <p>
                   <strong>Nom:</strong> {panier.shippingAddress.nomPrenom}{" "}
@@ -59,7 +59,7 @@ const CommanderPage = (props) => {
               </div>
             </li>
             <li>
-              <div className="card card-body">
+              <div className="card2 card-body">
                 <h2>Paiement</h2>
                 <p>
                   <strong>Méthode de paiement:</strong> {panier.paiement}
@@ -67,7 +67,7 @@ const CommanderPage = (props) => {
               </div>
             </li>
             <li>
-              <div className="card card-body">
+              <div className="card2 card-body">
                 <h2>Vos Produits:</h2>
                 <ul>
                   {panier.panierProduits.map((produit) => (
@@ -98,8 +98,8 @@ const CommanderPage = (props) => {
             </li>
           </ul>
         </div>
-        <div className="col-3">
-          <div className="card card-body">
+        <div className="mycol3">
+          <div className="card2 card-body">
             <ul>
               <li>
                 <h2>Récapitulatif de la commande</h2>

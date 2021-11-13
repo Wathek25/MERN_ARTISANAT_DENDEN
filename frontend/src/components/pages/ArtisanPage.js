@@ -24,7 +24,7 @@ const ArtisanPage = (props) => {
   }, [dispatch, artisanId]);
   return (
     <div>
-      <div className="col-3" style={{ marginLeft: "35%" }}>
+      <div className="mycol3" style={{ marginLeft: "35%" }}>
         {loading ? (
           <Loading />
         ) : error ? (
@@ -57,9 +57,9 @@ const ArtisanPage = (props) => {
         ) : (
           <>
             {produits.length === 0 && <span>Aucun produit trouvé</span>}
-            <div className="row">
+            <div className="produit">
               {produits.map((produit) => (
-                <div className="col-3">
+                <div className="mycol3">
                   <Produit key={produit._id} produit={produit}></Produit>
                 </div>
               ))}

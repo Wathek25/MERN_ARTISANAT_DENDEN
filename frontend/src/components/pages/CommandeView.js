@@ -69,10 +69,10 @@ const CommandeView = (props) => {
     <div>
       <h3>ID de votre commande {commander._id}</h3>
       <div className="produit top">
-        <div className="col-3">
+        <div className="mycol3">
           <ul>
             <li>
-              <div className="card card-body">
+              <div className="card2 card-body">
                 <h2>Shipping</h2>
                 <p>
                   <strong>Nom:</strong> {commander.shippingAddress.nomPrenom}
@@ -85,7 +85,7 @@ const CommandeView = (props) => {
               </div>
             </li>
             <li>
-              <div className="card card-body">
+              <div className="card2 card-body">
                 <h2>Paiement</h2>
                 <p>
                   <strong>Méthode de paiement:</strong> {commander.paiement}
@@ -93,7 +93,7 @@ const CommandeView = (props) => {
               </div>
             </li>
             <li>
-              <div className="card card-body">
+              <div className="card2 card-body">
                 <h2>Vos Produits:</h2>
                 <ul>
                   {commander.commanderProduits.map((produit) => (
@@ -124,8 +124,8 @@ const CommandeView = (props) => {
             </li>
           </ul>
         </div>
-        <div className="col-3">
-          <div className="card card-body">
+        <div className="mycol3">
+          <div className="card2 card-body">
             <ul>
               <li>
                 <h2>Récapitulatif de la commande</h2>
