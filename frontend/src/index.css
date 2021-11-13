@@ -492,7 +492,7 @@ img.large {
   background-color: transparent;
   position: absolute;
   z-index: 1;
-  top: 15%;
+  top: 35%;
   left: 0;
   border-radius: none;
   border: none;
@@ -503,7 +503,7 @@ img.large {
   background-color: transparent;
   position: absolute;
   z-index: 1;
-  top: 15%;
+  top: 35%;
   right: 0;
   border-radius: none;
   border: 0;
