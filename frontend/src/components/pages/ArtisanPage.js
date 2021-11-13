@@ -57,13 +57,12 @@ const ArtisanPage = (props) => {
         ) : (
           <>
             {produits.length === 0 && <span>Aucun produit trouvé</span>}
-            <div className="produit">
-              {produits.map((produit) => (
-                <div className="mycol3">
-                  <Produit key={produit._id} produit={produit}></Produit>
-                </div>
-              ))}
-            </div>
+
+            {produits.map((produit) => (
+              <div className="mycol5">
+                <Produit key={produit._id} produit={produit}></Produit>
+              </div>
+            ))}
           </>
         )}
       </div>

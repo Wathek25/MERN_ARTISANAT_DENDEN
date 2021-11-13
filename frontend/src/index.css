@@ -137,7 +137,14 @@ a.brand {
 }
 
 .mycol3 {
-  flex: 2 30px;
+  /* flex: 2 30px; */
+  flex: 32 1 75rem;
+}
+.mycol5 {
+  display: inline-block;
+  /* flex: 2 30px; */
+  align-items: center;
+  justify-content: space-between;
 }
 .mycol4 {
   flex: 32 1 75rem;
@@ -332,6 +339,14 @@ img.large {
 }
 
 /* Search */
+
+.search_produit {
+  display: flex;
+  /* flex-wrap: wrap; */
+  /* justify-content: space-between; */
+  align-items: left;
+}
+
 .search button {
   border-radius: 0 0.3rem 0.3rem 0;
   border-right: none;
