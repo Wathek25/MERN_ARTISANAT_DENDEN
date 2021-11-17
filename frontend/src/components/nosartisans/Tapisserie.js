@@ -7,7 +7,11 @@ import React from "react";
 export default function Tapisserie() {
   return (
     <div className="container">
-      <h1>Tapisserie</h1>
+      <strong
+        style={{ fontSize: "large", color: "#e5890a", fontWeight: "bold" }}
+      >
+        Tapisserie
+      </strong>
       <p>
         La Tunisie est réputée pour ses tapis, mergoums, klims et autres
         tapisseries et tissages. De tous temps et aujourd’hui encore, du nord au
@@ -111,6 +115,7 @@ export default function Tapisserie() {
             </p> */}
           </div>
         </div>
+        <br />
       </section>
     </div>
   );

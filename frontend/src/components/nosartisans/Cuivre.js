@@ -7,7 +7,11 @@ import React from "react";
 export default function Cuivre() {
   return (
     <div className="container">
-      <h1>Cuivre martelé</h1>
+      <strong
+        style={{ fontSize: "large", color: "#e5890a", fontWeight: "bold" }}
+      >
+        Cuivre martelé
+      </strong>
       <p>
         l’artisan tunisien perpétuant ce métier d’art conçoit un design, un
         modèle et une forme et il tentait de le reproduire. C’est avec une
@@ -110,6 +114,7 @@ export default function Cuivre() {
             </p> */}
           </div>
         </div>
+        <br />
       </section>
     </div>
   );

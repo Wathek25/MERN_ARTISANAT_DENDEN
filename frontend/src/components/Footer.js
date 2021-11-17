@@ -14,7 +14,9 @@ const Footer = () => {
             </div>
             <div className="col-lg-3 py-3 page-footer">
               <h3>
-                <strong>Information du contact</strong>
+                <strong style={{ fontSize: "large", fontWeight: "bold" }}>
+                  Information du contact
+                </strong>
               </h3>
               <p>
                 La maison de l'artisanat du denden est sous la tutelle de
@@ -25,7 +27,9 @@ const Footer = () => {
             </div>
             <div className="col-lg-3 py-3">
               <h3>
-                <strong>Village d'artisanat denden</strong>
+                <strong style={{ fontSize: "large", fontWeight: "bold" }}>
+                  Village d'artisanat denden
+                </strong>
               </h3>
               <ul className="footer-menu">
                 <li style={{ textDecoration: "none", color: "#e5890a" }}>

@@ -7,7 +7,11 @@ import React from "react";
 export default function Fibre() {
   return (
     <div className="container">
-      <h1>Fibres végétales</h1>
+      <strong
+        style={{ fontSize: "large", color: "#e5890a", fontWeight: "bold" }}
+      >
+        Fibres Végétales
+      </strong>
       <p>
         Le travail des fibres végétales -une matière naturelle très abondante en
         Tunisie- est de retour. Le fameux couffin, célèbre dans le monde entier,
@@ -99,6 +103,7 @@ export default function Fibre() {
             Facebook : l.ART du Rotin
           </p> */}
         </div>
+        <br />
       </section>
     </div>
   );

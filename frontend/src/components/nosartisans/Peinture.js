@@ -7,10 +7,10 @@ import React from "react";
 export default function Peinture() {
   return (
     <div className="container">
-      <strong>
-        <span style={{ fontWeight: "bold", color: "#e5890a" }}>
-          Peinture <span style={{ fontWeight: "bold" }}>sur le bois</span>
-        </span>
+      <strong
+        style={{ fontSize: "large", color: "#e5890a", fontWeight: "bold" }}
+      >
+        Peinture sur le bois
       </strong>
       <p>
         Le travail du bois est fortement enraciné dans l’artisanat L’artisan
@@ -101,6 +101,7 @@ export default function Peinture() {
             </p> */}
           </div>
         </div>
+        <br />
       </section>
     </div>
   );

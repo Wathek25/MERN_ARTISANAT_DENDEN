@@ -7,7 +7,11 @@ import React from "react";
 export default function Mosaique() {
   return (
     <div className="container">
-      <h1>Verre Soufflé</h1>
+      <strong
+        style={{ fontSize: "large", color: "#e5890a", fontWeight: "bold" }}
+      >
+        Verre Soufflé
+      </strong>
       <p>
         Depuis fort longtemps, les artisans tunisiens sont reconnus pour leur
         maîtrise de l’art du verre soufflé. Tellement longtemps que certains ont
@@ -93,6 +97,7 @@ export default function Mosaique() {
             </p> */}
           </div>
         </div>
+        <br />
       </section>
     </div>
   );
