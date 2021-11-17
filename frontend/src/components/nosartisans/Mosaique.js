@@ -7,7 +7,11 @@ import React from "react";
 export default function Mosaique() {
   return (
     <div className="container">
-      <strong style={{ fontWeight: "bold", color: "#e5890a" }}>Mosaïque</strong>
+      <h1>
+        <strong style={{ fontWeight: "bold", color: "#e5890a" }}>
+          Mosaïque
+        </strong>
+      </h1>
       <p>
         Le mot mosaïque dérive du latin MUSIUUM OPUS ce qui signifie l’ouvrage
         lié au Musé. Le mot arabe dérive du mot grec PSEPHOS. La mosaïque est

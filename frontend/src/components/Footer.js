@@ -28,7 +28,7 @@ const Footer = () => {
             <div className="col-lg-3 py-3">
               <h3>
                 <strong style={{ fontWeight: "bold" }}>
-                  Village d'artisanat denden
+                  Village artisanale denden
                 </strong>
               </h3>
               <ul className="footer-menu">
