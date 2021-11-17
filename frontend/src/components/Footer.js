@@ -14,7 +14,7 @@ const Footer = () => {
             </div>
             <div className="col-lg-3 py-3 page-footer">
               <h3>
-                <strong style={{ fontSize: "large" }}>
+                <strong style={{ fontWeight: "bold" }}>
                   Information du contact
                 </strong>
               </h3>
