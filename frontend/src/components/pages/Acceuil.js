@@ -39,9 +39,20 @@ const Acceuil = () => {
   return (
     <div>
       <div>
-        <h1 style={{ textAlign: "center", textDecoration: "underline" }}>
-          Derniers
-          <span style={{ color: "rgb(229, 137, 10)" }}> produits</span>
+        <h1>
+          <strong
+            style={{
+              textAlign: "center",
+              textDecoration: "underline",
+              fontWeight: "bold",
+            }}
+          >
+            Derniers
+          </strong>
+          <strong style={{ color: "rgb(229, 137, 10)", fontWeight: "bold" }}>
+            {" "}
+            produits
+          </strong>
         </h1>
 
         {loading ? (
@@ -89,9 +100,20 @@ const Acceuil = () => {
         )}
       </div>
       <div>
-        <h1 style={{ textAlign: "center", textDecoration: "underline" }}>
-          Derniers
-          <span style={{ color: "rgb(229, 137, 10)" }}> blogs</span>
+        <h1>
+          <strong
+            style={{
+              textAlign: "center",
+              textDecoration: "underline",
+              fontWeight: "bold",
+            }}
+          >
+            Derniers
+          </strong>
+          <strong style={{ color: "rgb(229, 137, 10)", fontWeight: "bold" }}>
+            {" "}
+            blog
+          </strong>
         </h1>
         {loading ? (
           <Loading />

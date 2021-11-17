@@ -59,7 +59,9 @@ const Footer = () => {
               </ul>
             </div>
             <div className="col-lg-3 py-3">
-              <h5>Newsletter</h5>
+              <h5>
+                <strong style={{ fontWeight: "bold" }}>Newsletter</strong>
+              </h5>
               <form action="#">
                 <input
                   type="text"
