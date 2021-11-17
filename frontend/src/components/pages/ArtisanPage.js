@@ -34,18 +34,18 @@ const ArtisanPage = (props) => {
             <li>
               <div className="produit start">
                 <div className="p-1">
-                  <h1>
+                  <strong>
                     {client.artisan.nom}
-                    <span> {client.artisan.prenom}</span>
-                  </h1>
+                    <span style={{ color: "#e5890a" }}>
+                      {" "}
+                      {client.artisan.prenom}
+                    </span>
+                  </strong>
                 </div>
               </div>
             </li>
 
-            <li>
-              <strong>Description :</strong>
-              {client.artisan.description}
-            </li>
+            <li>{client.artisan.description}</li>
           </ul>
         )}
       </div>

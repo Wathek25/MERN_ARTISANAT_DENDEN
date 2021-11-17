@@ -7,9 +7,7 @@ import React from "react";
 export default function Cuivre() {
   return (
     <div className="container">
-      <strong
-        style={{ fontSize: "large", color: "#e5890a", fontWeight: "bold" }}
-      >
+      <strong style={{ color: "#e5890a", fontWeight: "bold" }}>
         Cuivre martelé
       </strong>
       <p>
