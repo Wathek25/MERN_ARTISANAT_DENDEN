@@ -57,7 +57,7 @@ export default function Blogs() {
                   </p> */}
                   <NavLink
                     to={`/blog/${blog._id}`}
-                    style={{ textDecoration: "none" }}
+                    style={{ textDecoration: "none", color: "#e5890a" }}
                   >
                     Lire la suite...
                   </NavLink>

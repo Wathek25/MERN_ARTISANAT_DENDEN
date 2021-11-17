@@ -115,7 +115,7 @@ const Acceuil = () => {
                       </h5>
                       <NavLink
                         to={`/blog/${blog._id}`}
-                        style={{ textDecoration: "none" }}
+                        style={{ textDecoration: "none", color: "#e5890a" }}
                       >
                         Lire la suite...
                       </NavLink>
