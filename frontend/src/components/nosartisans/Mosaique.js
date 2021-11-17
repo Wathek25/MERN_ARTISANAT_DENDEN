@@ -83,7 +83,7 @@ export default function Mosaique() {
             </div>
           </div>
 
-          <div className="mix col-lg-3 col-md-3 col-sm-6">
+          {/* <div className="mix col-lg-3 col-md-3 col-sm-6">
             <div className="item">
               <a
                 href="https://res.cloudinary.com/dbc5f1w2q/image/upload/v1635729432/Nos%20artisans/Mosaique/DSC_0038_eh3xtj.jpg"
@@ -100,7 +100,7 @@ export default function Mosaique() {
                 </div>
               </a>
             </div>
-          </div>
+          </div> */}
 
           <div>
             {/* <p>
