@@ -32,8 +32,9 @@ export default function Tapisserie() {
         artisanes tunisiennes ont le secret.
       </p>
       <iframe
-        width="596"
-        height="335"
+        width="100%"
+        height="420"
+        margin="auto"
         src="https://www.youtube.com/embed/d52jhMoisrk"
         title="YouTube video player"
         frameborder="0"
@@ -101,13 +102,13 @@ export default function Tapisserie() {
           </div>
 
           <div>
-            <p>
+            {/* <p>
               <br />
               Contact : <br />
               Adr : Maison de l'artisanat DenDen atelier n°7 <br />
               Artisan : Mohamed riadh <br />
               Tél : +216 98 269 249 <br />
-            </p>
+            </p> */}
           </div>
         </div>
       </section>

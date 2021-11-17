@@ -7,7 +7,11 @@ import React from "react";
 export default function Peinture() {
   return (
     <div className="container">
-      <h1>Peinture sur le bois</h1>
+      <strong>
+        <span style={{ fontWeight: "bold", color: "#e5890a" }}>
+          Peinture <span style={{ fontWeight: "bold" }}>sur le bois</span>
+        </span>
+      </strong>
       <p>
         Le travail du bois est fortement enraciné dans l’artisanat L’artisan
         tunisien n’a pas seulement excellé dans la sculpture du bois. D’autres
@@ -18,8 +22,9 @@ export default function Peinture() {
         bakhnoug ou encore de la mosaïque romaine.
       </p>
       <iframe
-        width="560"
-        height="315"
+        width="100%"
+        height="420"
+        margin="auto"
         src="https://www.youtube.com/embed/UnI2W7oNU2E"
         title="YouTube video player"
         frameborder="0"
@@ -87,13 +92,13 @@ export default function Peinture() {
           </div>
 
           <div>
-            <p>
+            {/* <p>
               <br />
               Contact : <br />
               Adr : Maison de l'artisanat DenDen atelier n°7 <br />
               Artisan : Mohamed riadh <br />
               Tél : +216 98 269 249 <br />
-            </p>
+            </p> */}
           </div>
         </div>
       </section>

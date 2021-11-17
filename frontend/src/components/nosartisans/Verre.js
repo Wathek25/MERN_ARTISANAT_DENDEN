@@ -33,8 +33,9 @@ export default function Mosaique() {
         Tunis, au sein de village de denden
       </p>
       <iframe
-        width="596"
-        height="335"
+        width="100%"
+        height="420"
+        margin="auto"
         src="https://www.youtube.com/embed/YA41VdIk1Oo"
         title="YouTube video player"
         frameborder="0"
@@ -83,13 +84,13 @@ export default function Mosaique() {
           </div>
 
           <div>
-            <p>
+            {/* <p>
               Contact : <br />
               Adr : Maison de l'artisanat DenDen atelier n°11
               <br /> Artisan : Makrim Zitoun
               <br /> Tél : +216 23 268 026
               <br /> Facebook : @zitoun.artisanal
-            </p>
+            </p> */}
           </div>
         </div>
       </section>

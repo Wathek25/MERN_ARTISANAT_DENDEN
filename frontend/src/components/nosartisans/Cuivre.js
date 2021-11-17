@@ -101,13 +101,13 @@ export default function Cuivre() {
             </div>
           </div>
           <div>
-            <p>
+            {/* <p>
               <br />
               Contact : <br />
               Adr : Maison de l'artisanat DenDen atelier n°7 <br />
               Artisan : Mohamed riadh <br />
               Tél : +216 98 269 249 <br />
-            </p>
+            </p> */}
           </div>
         </div>
       </section>

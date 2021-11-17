@@ -19,8 +19,9 @@ export default function Fibre() {
       </p>
       <p>
         <iframe
-          width="596"
-          height="335"
+          width="100%"
+          height="420"
+          margin="auto"
           src="https://www.youtube.com/embed/sopao_sJFhw"
           title="YouTube video player"
           frameborder="0"
@@ -87,7 +88,7 @@ export default function Fibre() {
               </a>
             </div>
           </div>
-          <p>
+          {/* <p>
             Contact : <br />
             Adr : Maison de l'artisanat DenDen atelier n°30
             <br />
@@ -96,7 +97,7 @@ export default function Fibre() {
             Tél : +216 98 376 459
             <br />
             Facebook : l.ART du Rotin
-          </p>
+          </p> */}
         </div>
       </section>
     </div>

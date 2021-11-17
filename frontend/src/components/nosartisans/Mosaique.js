@@ -33,8 +33,9 @@ export default function Mosaique() {
         mosaïste.
       </p>
       <iframe
-        width="596"
-        height="335"
+        width="100%"
+        height="420"
+        margin="auto"
         src="https://www.youtube.com/embed/y1VxwPFyrWg"
         title="YouTube video player"
         frameborder="0"
@@ -102,12 +103,12 @@ export default function Mosaique() {
           </div>
 
           <div>
-            <p>
+            {/* <p>
               Contact : <br />
               Adr : Maison de l'artisanat DenDen atelier n°48
               <br /> Artisan : Karim Bairem
               <br /> Tél : 21.013.940
-            </p>
+            </p> */}
           </div>
         </div>
       </section>
