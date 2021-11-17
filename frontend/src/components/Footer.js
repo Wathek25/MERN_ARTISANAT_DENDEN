@@ -13,9 +13,9 @@ const Footer = () => {
               </h3>
             </div>
             <div className="col-lg-3 py-3 page-footer">
-              <h2>
+              <span>
                 <strong>Information du contact</strong>
-              </h2>
+              </span>
               <p>
                 La maison de l'artisanat du denden est sous la tutelle de
                 l'Office National de l'Artisanat.
@@ -24,9 +24,9 @@ const Footer = () => {
               <p>Phone: (+216)71.610.919</p>
             </div>
             <div className="col-lg-3 py-3">
-              <h2>
+              <span>
                 <strong>Village d'artisanat denden</strong>
-              </h2>
+              </span>
               <ul className="footer-menu">
                 <li style={{ textDecoration: "none", color: "#e5890a" }}>
                   <Link
