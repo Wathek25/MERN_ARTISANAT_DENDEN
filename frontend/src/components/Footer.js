@@ -9,7 +9,10 @@ const Footer = () => {
           <div className="row">
             <div className="col-lg-3 py-3">
               <h3>
-                VillageArt<span style={{ color: "#e5890a" }}>Denden.</span>
+                VillageArt
+                <strong style={{ color: "#e5890a", fontWeight: "bold" }}>
+                  Denden.
+                </strong>
               </h3>
             </div>
             <div className="col-lg-3 py-3 page-footer">

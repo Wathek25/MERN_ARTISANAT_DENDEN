@@ -52,10 +52,10 @@ const NavbarC = () => {
         <Container>
           <Navbar.Brand>
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-              VillageArt
-              <span style={{ color: "#e5890a", fontWeight: "bold" }}>
+              <strong>VillageArt</strong>
+              <strong style={{ color: "#e5890a", fontWeight: "bold" }}>
                 Denden
-              </span>
+              </strong>
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
