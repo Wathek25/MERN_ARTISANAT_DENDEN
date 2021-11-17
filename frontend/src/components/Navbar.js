@@ -67,7 +67,7 @@ const NavbarC = () => {
                 </Link>
               </Nav.Link>
 
-              <NavDropdown title="Nos artisans" id="basic-nav-dropdown">
+              <NavDropdown title="Nos métiers" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/peinture">
                   Peinture sur le bois
                 </NavDropdown.Item>
