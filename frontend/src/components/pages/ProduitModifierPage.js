@@ -85,7 +85,7 @@ const ProduitModifierPage = (props) => {
     <div>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>Modifier Produit {produitId}</h1>
+          <h1>Produit </h1>
         </div>
         {loadingUpdate && <Loading />}
         {errorUpdate && <span>{errorUpdate}</span>}

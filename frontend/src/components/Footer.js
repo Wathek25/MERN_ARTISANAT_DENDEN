@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-lg-3 py-3">
               <h3>
-                VillageArt
+                <strong>VillageArt</strong>
                 <strong style={{ color: "#e5890a", fontWeight: "bold" }}>
                   Denden.
                 </strong>
@@ -84,9 +84,9 @@ const Footer = () => {
 
           <hr />
 
-          <div className="row mt-4">
-            <div className="col-md-6">
-              <p>@Copyright 2021.</p>
+          <div>
+            <div>
+              <p style={{ textAlign: "center" }}>@Copyright 2021.</p>
             </div>
           </div>
         </div>
