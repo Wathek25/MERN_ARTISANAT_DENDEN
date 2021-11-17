@@ -159,6 +159,7 @@ const Acceuil = () => {
         <img
           width="100%"
           margin="auto"
+          height="350px"
           src="https://res.cloudinary.com/dbc5f1w2q/image/upload/v1637176118/villdesc/villagedesc_rsui0i.png"
           alt="villagedesc"
         />

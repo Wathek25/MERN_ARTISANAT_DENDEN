@@ -23,7 +23,7 @@ const Footer = () => {
                 l'Office National de l'Artisanat.
               </p>
               <p>Email: villageartdenden@contact.com </p>
-              <p>Phone: (+216)71.610.919</p>
+              <p>Tél: (+216)71.610.919</p>
             </div>
             <div className="col-lg-3 py-3">
               <h3>
@@ -59,9 +59,9 @@ const Footer = () => {
               </ul>
             </div>
             <div className="col-lg-3 py-3">
-              <h5>
+              <h3>
                 <strong style={{ fontWeight: "bold" }}>Newsletter</strong>
-              </h5>
+              </h3>
               <form action="#">
                 <input
                   type="text"

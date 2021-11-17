@@ -146,6 +146,7 @@ const ProduitModifierPage = (props) => {
                 onChange={(e) => setCategorie(e.target.value)}
               ></input>
             </div>
+
             <div>
               <label htmlFor="stock">Stock</label>
               <input
