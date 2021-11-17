@@ -29,7 +29,11 @@ const PanierPage = (props) => {
   return (
     <div className="panier">
       <div className="col-6">
-        <h2>Votre Panier</h2>
+        <h2>
+          <strong style={{ fontWeight: "bold", color: "#e5890a" }}>
+            Votre Panier
+          </strong>
+        </h2>
         {panierProduits.length === 0 ? (
           <h3>
             Panier est vide !
@@ -85,6 +89,7 @@ const PanierPage = (props) => {
                   <div>{produit.prix} Dt</div>
                   <div>
                     <button
+                      className="btn btn-outline-warning"
                       type="button"
                       onClick={() => supprimerProduitHandler(produit.produit)}
                     >

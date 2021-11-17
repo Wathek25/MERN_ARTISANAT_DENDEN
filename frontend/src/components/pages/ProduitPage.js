@@ -102,7 +102,11 @@ const ProduitPage = (props) => {
           >
             <h4>Acceuil</h4>
           </Link>
-          <h1>Vos Produit</h1>
+          <h1>
+            <strong style={{ fontWeight: "bold", color: "#e5890a" }}>
+              Vos Produit
+            </strong>
+          </h1>
 
           <div className="produit top">
             <div className="">
@@ -196,14 +200,32 @@ const ProduitPage = (props) => {
             </div>
           </div>
           <div>
-            <h2 id="reviews">Avis</h2>
-            {produit.reviews.length === 0 && <span>Aucun Avis</span>}
+            <h2
+              id="reviews"
+              style={{ textAlign: "center", fontWeight: "bold" }}
+            >
+              Les Avis
+            </h2>
+            {produit.reviews.length === 0 && (
+              <span style={{ textAlign: "center", fontWeight: "bold" }}>
+                Aucun Avis
+              </span>
+            )}
             <ul>
               {produit.reviews.map((review) => (
-                <li key={review._id}>
+                <li
+                  key={review._id}
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+
+                    // flexWrap: "wrap",
+                    // textAlign: "center",
+                  }}
+                >
                   <strong>{review.nom}</strong>
                   <Rating rating={review.rating} caption=" "></Rating>
-                  <p>{review.createdAt.substring(0, 10)}</p>
+                  {/* <p>{review.createdAt.substring(0, 10)}</p> */}
                   <p>{review.comment}</p>
                   {nom && nom === review.nom && (
                     <button
@@ -219,10 +241,12 @@ const ProduitPage = (props) => {
                 {clientInfo ? (
                   <form className="form" onSubmit={submitHandler}>
                     <div>
-                      <h2>Donnez votre avis</h2>
+                      <h2 style={{ textAlign: "center", fontWeight: "bold" }}>
+                        Donnez votre avis
+                      </h2>
                     </div>
                     <div>
-                      <label htmlFor="rating">Rating</label>
+                      <label htmlFor="rating">Évaluiez</label>
                       <select
                         id="rating"
                         value={rating}
@@ -237,7 +261,7 @@ const ProduitPage = (props) => {
                       </select>
                     </div>
                     <div>
-                      <label htmlFor="comment">Comment</label>
+                      <label htmlFor="comment">Commentaire</label>
                       <textarea
                         id="comment"
                         value={comment}

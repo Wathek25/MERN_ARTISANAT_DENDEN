@@ -47,7 +47,11 @@ const CommanderPage = (props) => {
           <ul>
             <li>
               <div className="card2 card-body">
-                <h2>Shipping</h2>
+                <h2>
+                  <strong style={{ fontWeight: "bold", color: "#e5890a" }}>
+                    Livraison
+                  </strong>
+                </h2>
                 <p>
                   <strong>Nom:</strong> {panier.shippingAddress.nomPrenom}{" "}
                   <br />
@@ -60,7 +64,11 @@ const CommanderPage = (props) => {
             </li>
             <li>
               <div className="card2 card-body">
-                <h2>Paiement</h2>
+                <h2>
+                  <strong style={{ fontWeight: "bold", color: "#e5890a" }}>
+                    Paiement
+                  </strong>
+                </h2>
                 <p>
                   <strong>Méthode de paiement:</strong> {panier.paiement}
                 </p>
@@ -68,7 +76,11 @@ const CommanderPage = (props) => {
             </li>
             <li>
               <div className="card2 card-body">
-                <h2>Vos Produits:</h2>
+                <h2>
+                  <strong style={{ fontWeight: "bold", color: "#e5890a" }}>
+                    Vos Produits:
+                  </strong>
+                </h2>
                 <ul>
                   {panier.panierProduits.map((produit) => (
                     <li key={produit.produit}>
@@ -81,7 +93,13 @@ const CommanderPage = (props) => {
                           ></img>
                         </div>
                         <div className="min-30">
-                          <Link to={`/produit/${produit.produit}`}>
+                          <Link
+                            to={`/produit/${produit.produit}`}
+                            style={{
+                              color: "#e5890a",
+                              textDecoration: "none",
+                            }}
+                          >
                             {produit.nom}
                           </Link>
                         </div>
@@ -102,7 +120,11 @@ const CommanderPage = (props) => {
           <div className="card2 card-body">
             <ul>
               <li>
-                <h2>Récapitulatif de la commande</h2>
+                <h2>
+                  <strong style={{ fontWeight: "bold", color: "#e5890a" }}>
+                    Récapitulatif de la commande
+                  </strong>
+                </h2>
               </li>
               <li>
                 <div className="produit">
