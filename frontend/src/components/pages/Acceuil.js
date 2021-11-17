@@ -117,7 +117,7 @@ const Acceuil = () => {
                         to={`/blog/${blog._id}`}
                         style={{ textDecoration: "none" }}
                       >
-                        Détail du blog
+                        Lire la suite...
                       </NavLink>
                     </div>
                   </div>
@@ -131,7 +131,7 @@ const Acceuil = () => {
           </div>
         )}
       </div>
-      <div className="block-home-description">
+      {/* <div className="block-home-description">
         <div className="home-description-content">
           <h3>
             VillageArtDenden
@@ -142,6 +142,14 @@ const Acceuil = () => {
             </p>
           </h3>
         </div>
+      </div> */}
+      <div className="villagedesc">
+        <img
+          width="100%"
+          margin="auto"
+          src="https://res.cloudinary.com/dbc5f1w2q/image/upload/v1637176118/villdesc/villagedesc_rsui0i.png"
+          alt="villagedesc"
+        />
       </div>
     </div>
   );

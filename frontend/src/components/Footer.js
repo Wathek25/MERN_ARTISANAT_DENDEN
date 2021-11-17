@@ -18,7 +18,7 @@ const Footer = () => {
                 La maison de l'artisanat du denden est sous la tutelle de
                 l'Office National de l'Artisanat.
               </p>
-              <p>Email: villageartdenden@contact.com</p>
+              <p>Email: villageartdenden@contact.com </p>
               <p>Phone: (+216)71.610.919</p>
             </div>
             <div className="col-lg-3 py-3">
@@ -58,7 +58,11 @@ const Footer = () => {
                   className="form-control"
                   placeholder="Entrer votre Email"
                 />
-                <button type="submit" className="btn btn-primary btn-sm mt-2">
+                <button
+                  type="submit"
+                  className="btn  btn-sm mt-2"
+                  style={{ backgroundColor: "#e5890a" }}
+                >
                   Envoyer
                 </button>
               </form>

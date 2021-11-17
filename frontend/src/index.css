@@ -51,9 +51,10 @@ h2 {
 a {
   text-decoration: none;
 }
-a:hover {
+/* Link:hover {
   color: #ff8000;
-}
+  background-color: #e5890a;
+} */
 ul {
   padding: 0;
   margin: 0;
@@ -541,4 +542,15 @@ img.large {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+.page-footer {
+  background-color: #65403b;
+}
+
+/*Village desc*/
+.villagedesc {
+  width: 1080px;
+  height: 400px;
+  margin-left: 160px;
 }

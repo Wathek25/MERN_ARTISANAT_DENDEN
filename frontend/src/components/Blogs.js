@@ -59,7 +59,7 @@ export default function Blogs() {
                     to={`/blog/${blog._id}`}
                     style={{ textDecoration: "none" }}
                   >
-                    Détail du blog
+                    Lire la suite...
                   </NavLink>
                   <br />
                   {isAdmin && (

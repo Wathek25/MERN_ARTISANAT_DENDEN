@@ -47,7 +47,7 @@ const NavbarC = () => {
     <div>
       <Navbar
         expand="lg"
-        style={{ backgroundColor: "#203040", fontSize: "68%" }}
+        style={{ backgroundColor: "#65403b", fontSize: "68%" }}
       >
         <Container>
           <Navbar.Brand>
