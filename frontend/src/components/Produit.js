@@ -7,7 +7,7 @@ const Produit = (props) => {
   const { produit } = props;
   return (
     <div>
-      <div className="card" key={produit._id}>
+      <div className="card" key={produit._id} style={{ textAlign: "center" }}>
         <Link
           to={`/produit/${produit._id}`}
           style={{
@@ -28,14 +28,18 @@ const Produit = (props) => {
             <h2>{produit.nom}</h2>
           </Link>
           <Rating rating={produit.rating} numReviews={produit.numReviews} />
-          <div className="produit">
-            <div className="prix">{produit.prix} Dt</div>
+          <div>
+            {/* <div className="prix">{produit.prix} Dt</div> */}
             <div>
               <span>Vendu par</span>
               <br />
               <Link
                 to={`/artisan/${produit.artisan._id}`}
-                style={{ textDecoration: "none", color: "#e5890a" }}
+                style={{
+                  textDecoration: "none",
+                  color: "#e5890a",
+                  textAlign: "center",
+                }}
               >
                 {produit.artisan.artisan.prenom}
               </Link>
