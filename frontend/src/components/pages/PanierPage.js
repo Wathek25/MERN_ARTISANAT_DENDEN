@@ -89,7 +89,7 @@ const PanierPage = (props) => {
                   <div>{produit.prix} Dt</div>
                   <div>
                     <button
-                      className="btn btn-outline-warning"
+                      className="btn btn-outline-warning btn-lg"
                       type="button"
                       onClick={() => supprimerProduitHandler(produit.produit)}
                     >
@@ -103,7 +103,7 @@ const PanierPage = (props) => {
         )}
       </div>
       <div className="produit">
-        <div className="card card-body">
+        <div className="card3 card-body">
           <ul>
             <li>
               <h2>
