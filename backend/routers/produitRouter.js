@@ -1,7 +1,6 @@
 import express from "express";
 import expressAsyncHandler from "express-async-handler";
 import data from "../data.js";
-import mongoose from "mongoose";
 import { Produit, Review } from "../models/produitModel.js";
 import { isAdmin, isArtisan, isArtisanOrAdmin, isAuth } from "../utils.js";
 

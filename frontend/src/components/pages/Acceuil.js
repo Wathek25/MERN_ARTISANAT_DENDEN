@@ -65,8 +65,9 @@ const Acceuil = () => {
             >
               <Slider>
                 {produits
-                  .reverse()
+
                   .slice(0, 8)
+                  .reverse()
                   .map((produit) => (
                     <Slide>
                       <Produit key={produit._id} produit={produit} />
