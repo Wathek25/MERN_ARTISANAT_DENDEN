@@ -214,7 +214,7 @@ img.large {
 
 /* Card */
 .card {
-  /* border: 0rem #e5890a solid; */
+  border: 0rem #e5890a solid;
   /* background-color: #f8f8f8; */
   background-color: white;
   /* border-radius: 0.5rem; */
