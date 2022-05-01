@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Produit from "../Produit";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
@@ -38,6 +39,90 @@ const Acceuil = () => {
 
   return (
     <div>
+      <h1
+        style={{
+          textAlign: "center",
+          textDecoration: "underline",
+          fontWeight: "bold",
+        }}
+      >
+        <strong>Nos</strong>
+        <strong style={{ color: "rgb(229, 137, 10)" }}> Catégories</strong>
+      </h1>
+
+      <CarouselProvider
+        naturalSlideWidth={100}
+        naturalSlideHeight={125}
+        currentSlide={0}
+        totalSlides={5}
+        visibleSlides={4}
+      >
+        <Slider>
+          <Slide>
+            <Link to={`/search/categorie/Bois`}>
+              <img
+                className="catImg"
+                src="https://res.cloudinary.com/dbc5f1w2q/image/upload/v1651387504/Acceuil_Produits/Nos%20categroies%20slider/NBois_bydpko.jpg"
+                alt="img"
+              />
+            </Link>
+          </Slide>
+          <Slide>
+            <Link to={`/search/categorie/Céramique`}>
+              <img
+                className="catImg"
+                src="https://res.cloudinary.com/dbc5f1w2q/image/upload/v1651387504/Acceuil_Produits/Nos%20categroies%20slider/NCeramique_z5weob.jpg"
+                alt="img"
+              />
+            </Link>
+          </Slide>
+          <Slide>
+            <Link to={`/search/categorie/Mosaique`}>
+              <img
+                className="catImg"
+                src="https://res.cloudinary.com/dbc5f1w2q/image/upload/v1651387506/Acceuil_Produits/Nos%20categroies%20slider/NMosaique_icubai.jpg"
+                alt="img"
+              />
+            </Link>
+          </Slide>
+          <Slide>
+            <Link to={`/search/categorie/Tapis`}>
+              <img
+                className="catImg"
+                src="https://res.cloudinary.com/dbc5f1w2q/image/upload/v1651387506/Acceuil_Produits/Nos%20categroies%20slider/NTapis_asdvt8.jpg"
+                alt="img"
+              />
+            </Link>
+          </Slide>
+          <Slide>
+            <Link to={`/search/categorie/Verre%20soufflé`}>
+              <img
+                className="catImg"
+                src="https://res.cloudinary.com/dbc5f1w2q/image/upload/v1651387505/Acceuil_Produits/Nos%20categroies%20slider/NVerre_illlub.jpg"
+                alt="img"
+              />
+            </Link>
+          </Slide>
+        </Slider>
+        <div>
+          <ButtonBack className="back">
+            <i
+              class="fa fa-chevron-left"
+              style={{ fontSize: "40px", color: "#e5890a" }}
+            ></i>
+          </ButtonBack>
+          <ButtonNext class="next">
+            <i
+              class="fa fa-chevron-right"
+              style={{
+                fontSize: "36px",
+                color: "black",
+              }}
+            ></i>
+          </ButtonNext>
+        </div>
+      </CarouselProvider>
+
       <div>
         <h1
           style={{
@@ -55,27 +140,27 @@ const Acceuil = () => {
         ) : error ? (
           <Error />
         ) : (
-          <div>
-            <CarouselProvider
+          <div className="produit center">
+            {/* <CarouselProvider
               naturalSlideWidth={100}
               naturalSlideHeight={125}
               currentSlide={0}
               totalSlides={8}
               visibleSlides={4}
-            >
-              <Slider>
-                {produits
+            > */}
+            {/* <Slider> */}
+            {produits
 
-                  .slice(0, 8)
-                  .reverse()
-                  .map((produit) => (
-                    <Slide>
-                      <Produit key={produit._id} produit={produit} />
-                    </Slide>
-                  ))}
-              </Slider>
-              <div>
-                <ButtonBack className="back">
+              .slice(0, 8)
+              .reverse()
+              .map((produit) => (
+                // <Slide>
+                <Produit key={produit._id} produit={produit} />
+                // </Slide>
+              ))}
+            {/* </Slider> */}
+            <div>
+              {/* <ButtonBack className="back">
                   <i
                     class="fa fa-chevron-left"
                     style={{ fontSize: "40px", color: "#e5890a" }}
@@ -89,9 +174,9 @@ const Acceuil = () => {
                       color: "black",
                     }}
                   ></i>
-                </ButtonNext>
-              </div>
-            </CarouselProvider>
+                </ButtonNext> */}
+            </div>
+            {/* </CarouselProsvider> */}
           </div>
         )}
       </div>

@@ -212,6 +212,14 @@ img.large {
   height: 16rem;
 }
 
+.catImg {
+  border-radius: 0.5rem;
+  width: 20rem;
+  height: 15rem;
+  margin-left: 60px;
+  transform: translateY(40%);
+}
+
 /* Card */
 .card {
   border: 0rem #e5890a solid;

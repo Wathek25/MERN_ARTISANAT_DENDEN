@@ -11,6 +11,7 @@ const CarouselC = (props) => {
             src="https://res.cloudinary.com/dbc5f1w2q/image/upload/v1636476205/Carousel/car1_alg6wb.jpg"
             alt="First slide"
             height="350px"
+            object-fit="cover"
           />
 
           <Carousel.Caption></Carousel.Caption>
