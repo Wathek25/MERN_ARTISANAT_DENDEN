@@ -54,24 +54,24 @@ const Acceuil = () => {
         naturalSlideWidth={100}
         naturalSlideHeight={125}
         currentSlide={0}
-        totalSlides={5}
+        totalSlides={7}
         visibleSlides={4}
       >
         <Slider>
           <Slide>
-            <Link to={`/search/categorie/Bois`}>
+            <Link to={`/search/categorie/Cuivre`}>
               <img
                 className="catImg"
-                src="https://res.cloudinary.com/dbc5f1w2q/image/upload/v1651387504/Acceuil_Produits/Nos%20categroies%20slider/NBois_bydpko.jpg"
+                src="https://res.cloudinary.com/dbc5f1w2q/image/upload/v1651396380/Acceuil_Produits/Nos%20categroies%20slider/Ncuivre_hdknb1.jpg"
                 alt="img"
               />
             </Link>
           </Slide>
           <Slide>
-            <Link to={`/search/categorie/Céramique`}>
+            <Link to={`/search/categorie/Verre%20soufflé`}>
               <img
                 className="catImg"
-                src="https://res.cloudinary.com/dbc5f1w2q/image/upload/v1651387504/Acceuil_Produits/Nos%20categroies%20slider/NCeramique_z5weob.jpg"
+                src="https://res.cloudinary.com/dbc5f1w2q/image/upload/v1651387505/Acceuil_Produits/Nos%20categroies%20slider/NVerre_illlub.jpg"
                 alt="img"
               />
             </Link>
@@ -95,15 +95,34 @@ const Acceuil = () => {
             </Link>
           </Slide>
           <Slide>
-            <Link to={`/search/categorie/Verre%20soufflé`}>
+            <Link to={`/search/categorie/Céramique`}>
               <img
                 className="catImg"
-                src="https://res.cloudinary.com/dbc5f1w2q/image/upload/v1651387505/Acceuil_Produits/Nos%20categroies%20slider/NVerre_illlub.jpg"
+                src="https://res.cloudinary.com/dbc5f1w2q/image/upload/v1651387504/Acceuil_Produits/Nos%20categroies%20slider/NCeramique_z5weob.jpg"
+                alt="img"
+              />
+            </Link>
+          </Slide>
+          <Slide>
+            <Link to={`/search/categorie/Bois`}>
+              <img
+                className="catImg"
+                src="https://res.cloudinary.com/dbc5f1w2q/image/upload/v1651387504/Acceuil_Produits/Nos%20categroies%20slider/NBois_bydpko.jpg"
+                alt="img"
+              />
+            </Link>
+          </Slide>
+          <Slide>
+            <Link to={`/search/categorie/Rotin`}>
+              <img
+                className="catImg"
+                src="https://res.cloudinary.com/dbc5f1w2q/image/upload/v1651396381/Acceuil_Produits/Nos%20categroies%20slider/Nrotin_ncg4u9.jpg"
                 alt="img"
               />
             </Link>
           </Slide>
         </Slider>
+
         <div>
           <ButtonBack className="back">
             <i
