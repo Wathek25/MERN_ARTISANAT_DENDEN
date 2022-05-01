@@ -4,7 +4,8 @@ const Loading = () => {
   return (
     <div>
       <img
-        src="https://cdn.dribbble.com/users/108183/screenshots/2301400/media/6af65dd321fbdf53a04ed7464a644f53.gif"
+        className="spiner"
+        src="https://64.media.tumblr.com/695ce9a82c8974ccbbfc7cad40020c62/tumblr_o9c9rnRZNY1qbmm1co1_1280.gifv"
         alt="loading_img"
       />
     </div>
